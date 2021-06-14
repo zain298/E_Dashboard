@@ -86,6 +86,8 @@ import { PoliticalpartycandidateinformationComponent } from './politicalpartycan
 import { PersoninformationComponent } from './personinformation/personinformation.component';
 import { DistrictinformationComponent } from './districtinformation/districtinformation.component';
 import { ElectionvoterinformationComponent } from './electionvoterinformation/electionvoterinformation.component';
+import { EventsComponent } from './politicalprofile/events/events.component';
+import { NewsComponent } from './politicalprofile/news/news.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +119,8 @@ import { ElectionvoterinformationComponent } from './electionvoterinformation/el
     PersoninformationComponent,
     DistrictinformationComponent,
     ElectionvoterinformationComponent,
+    EventsComponent,
+    NewsComponent,
 
    
   ],

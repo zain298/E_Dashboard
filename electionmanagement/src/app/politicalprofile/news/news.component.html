@@ -1,0 +1,520 @@
+<div class="row pt-4">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <div class="element-content">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel-group">
+              <div class="pipeline white lined-primary">
+                <div class="pipeline-header">
+                  <span class="pipeline-name"
+                    ><b><i class="fa fa-columns faw"></i> Events </b></span
+                  >
+                  <button
+                    class="
+                      btn btn-default btn-white btn-rounded btn-lg
+                      float-right
+                    "
+                    (click)="AddNew()"
+                  >
+                    <i class="fa fa-plus faw" aria-hidden="true"></i> Add New
+                  </button>
+                </div>
+                <div class="pipeline-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="outer-div">
+                        <div class="grid-wrapper">
+                          <div
+                            class="col-sm-12"
+                            style="background-color: rgb(243, 243, 243)"
+                          >
+                            <div class="element-wrapper">
+                              <h6 class="element-header">Active News</h6>
+                              <div class="element-box-tp">
+                                <div class="table-responsive">
+                                  <table class="table table-padded">
+                                    <thead>
+                                      <tr>
+                                        <th></th>
+                                        <th>Auther</th>
+                                        <th>News</th>
+                                        <th>News Discription</th>
+                                        <th class="text-center">Date</th>
+                                        <th>Actions</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="text-center">
+                                          <input
+                                            class="form-control"
+                                            type="checkbox"
+                                          />
+                                        </td>
+                                        <td>
+                                          <div class="user-with-avatar">
+                                            <img
+                                              alt=""
+                                              src="img/avatar2.jpg"
+                                            /><span>Mike Bishop</span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="text-center">
+                                            <span
+                                              style="
+                                                max-width: 30ch;
+                                                display: inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                              "
+                                              >Meeting with PM in Islmabad gone
+                                              right
+                                            </span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="smaller lighter">
+                                            <span
+                                              style="
+                                                max-width: 50ch;
+                                                display: inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                              "
+                                            >
+                                              I have enabled the software for
+                                              you, you can try now heeow dsa ds
+                                              I have enabled the software for
+                                              you, you can try now...</span
+                                            >
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <span class="">12-05-2021</span>
+                                        </td>
+
+                                        <td class="row-actions">
+                                          <a (click)="Edit()" class="on-hover"
+                                            ><i
+                                              class="fa fa-pencil-square-o"
+                                            ></i></a
+                                          ><a class="danger" (click)="Delete()"
+                                            ><i
+                                              class="os-icon os-icon-ui-15"
+                                            ></i
+                                          ></a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-center">
+                                          <input
+                                            class="form-control"
+                                            type="checkbox"
+                                          />
+                                        </td>
+                                        <td>
+                                          <div class="user-with-avatar">
+                                            <img
+                                              alt=""
+                                              src="img/avatar2.jpg"
+                                            /><span>Mike Bishop</span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="text-center">
+                                            <span
+                                              style="
+                                                max-width: 30ch;
+                                                display: inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                              "
+                                              >Meeting with PM in Islmabad gone
+                                              right
+                                            </span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="smaller lighter">
+                                            <span
+                                              style="
+                                                max-width: 50ch;
+                                                display: inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                              "
+                                            >
+                                              I have enabled the software for
+                                              you, you can try now heeow dsa ds
+                                              I have enabled the software for
+                                              you, you can try now...</span
+                                            >
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <span class="">12-05-2021</span>
+                                        </td>
+
+                                        <td class="row-actions">
+                                          <a (click)="Edit()" class="on-hover"
+                                            ><i
+                                              class="fa fa-pencil-square-o"
+                                            ></i></a
+                                          ><a class="danger" (click)="Delete()"
+                                            ><i
+                                              class="os-icon os-icon-ui-15"
+                                            ></i
+                                          ></a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-center">
+                                          <input
+                                            class="form-control"
+                                            type="checkbox"
+                                          />
+                                        </td>
+                                        <td>
+                                          <div class="user-with-avatar">
+                                            <img
+                                              alt=""
+                                              src="img/avatar2.jpg"
+                                            /><span>Mike Bishop</span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="text-center">
+                                            <span
+                                              style="
+                                                max-width: 30ch;
+                                                display: inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                              "
+                                              >lorem ipsum blah blah blah blah
+                                            </span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="smaller lighter">
+                                            <span
+                                              style="
+                                                max-width: 50ch;
+                                                display: inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                              "
+                                            >
+                                              I have enabled the software for
+                                              you, you can try now heeow dsa ds
+                                              I have enabled the software for
+                                              you, you can try now...</span
+                                            >
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <span class="">12-05-2021</span>
+                                        </td>
+
+                                        <td class="row-actions">
+                                          <a (click)="Edit()" class="on-hover"
+                                            ><i
+                                              class="fa fa-pencil-square-o"
+                                            ></i></a
+                                          ><a class="danger" (click)="Delete()"
+                                            ><i
+                                              class="os-icon os-icon-ui-15"
+                                            ></i
+                                          ></a>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="text-center">
+                                          <input
+                                            class="form-control"
+                                            type="checkbox"
+                                          />
+                                        </td>
+                                        <td>
+                                          <div class="user-with-avatar">
+                                            <img
+                                              alt=""
+                                              src="img/avatar2.jpg"
+                                            /><span>Mike Bishop</span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="text-center">
+                                            <span
+                                              style="
+                                                max-width: 30ch;
+                                                display: inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                              "
+                                              >Local Dog caught bunking in
+                                              university
+                                            </span>
+                                          </div>
+                                        </td>
+                                        <td>
+                                          <div class="smaller lighter">
+                                            <span
+                                              style="
+                                                max-width: 50ch;
+                                                display: inline-block;
+                                                white-space: nowrap;
+                                                overflow: hidden;
+                                                text-overflow: ellipsis;
+                                              "
+                                            >
+                                              I have enabled the software for
+                                              you, you can try now heeow dsa ds
+                                              I have enabled the software for
+                                              you, you can try now...</span
+                                            >
+                                          </div>
+                                        </td>
+                                        <td class="text-center">
+                                          <span class="">12-05-2021</span>
+                                        </td>
+
+                                        <td class="row-actions">
+                                          <a (click)="Edit()" class="on-hover"
+                                            ><i
+                                              class="fa fa-pencil-square-o"
+                                            ></i></a
+                                          ><a class="danger" (click)="Delete()"
+                                            ><i
+                                              class="os-icon os-icon-ui-15"
+                                            ></i
+                                          ></a>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  aria-labelledby="exampleModalLabel"
+  class="modal fade show"
+  id="addModal"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="fa fa-plus" aria-hidden="true"></i> Add New News Information
+        </h5>
+        <button
+          aria-label="Close"
+          class="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span aria-hidden="true"> ×</span>
+        </button>
+      </div>
+      <form
+        action=""
+        class="form"
+        (ngSubmit)="f.form.valid && add(newsinformation)"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label">Election Date </label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="Election Date"
+                  [(ngModel)]="newsinformation.news_DATE"
+                  maxlength="20"
+                />
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label class="control-label"> Auther Name </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Election Date"
+                  [(ngModel)]="newsinformation.news_Auther"
+                  maxlength="20"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label"> News Title </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Election Date"
+                  [(ngModel)]="newsinformation.news_Title"
+                  maxlength="50"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label"> Event Description </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Election Date"
+                  [(ngModel)]="newsinformation.news_Desc"
+                  maxlength="200"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+            <i class="fa fa-plus" aria-hidden="true"></i> Add
+          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div
+  aria-labelledby="exampleModalLabel"
+  class="modal fade show"
+  id="editModal"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit News
+          Information
+        </h5>
+        <button
+          aria-label="Close"
+          class="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span aria-hidden="true"> ×</span>
+        </button>
+      </div>
+      <form
+        action=""
+        class="form"
+        (ngSubmit)="f.form.valid && update(newsinformation)"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label">Election Date </label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="Election Date"
+                  [(ngModel)]="newsinformation.news_DATE"
+                  maxlength="20"
+                />
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="form-group">
+                <label class="control-label"> Auther Name </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Election Date"
+                  [(ngModel)]="newsinformation.news_Auther"
+                  maxlength="20"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label"> News Title </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Election Date"
+                  [(ngModel)]="newsinformation.news_Title"
+                  maxlength="50"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label"> Event Description </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Election Date"
+                  [(ngModel)]="newsinformation.news_Desc"
+                  maxlength="200"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+            <i class="fa fa-plus" aria-hidden="true"></i> Update
+          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

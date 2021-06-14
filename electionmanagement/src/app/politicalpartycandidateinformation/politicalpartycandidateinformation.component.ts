@@ -60,48 +60,48 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
     window.open(location.origin + location.pathname + "#/" + url);
   }
 
-  // AddNew() {
-  //   this.politicalpartycandidateinformation = {
-  //     candidate_ID: 0,
-  //     description: "",
-  //     surname: "",
-  //     forenames: "",
-  //     //  electiontype_ID: {},
-  //     politicalparty_NAME: "",
-  //     contituency: "",
-  //     contituencyCode: "",
-  //     assembly: "",
-  //     isactive: true,
-  //   };
-  //   // this.getelectionType();
-  //   $("#addModal").modal("show");
-  // }
+  AddNew() {
+    // this.politicalpartycandidateinformation = {
+    //   candidate_ID: 0,
+    //   description: "",
+    //   surname: "",
+    //   forenames: "",
+    //   //  electiontype_ID: {},
+    //   politicalparty_NAME: "",
+    //   contituency: "",
+    //   contituencyCode: "",
+    //   assembly: "",
+    //   isactive: true,
+    // };
+    // this.getelectionType();
+    $("#addModal").modal("show");
+  }
 
   uploadorder() {
     $("#addModal").modal("show");
   }
 
-  // Edit(row) {
-  //   this.politicalpartycandidateinformation = {
-  //     candidate_ID: row.data.candidate_ID,
-  //     description: row.data.description,
-  //     surname: row.data.surname,
-  //     forenames: row.data.forenames,
-  //     // electiontype_ID: row.data.electiontype_ID!=null?row.data.electiontype_ID.id:null,
-  //     politicalparty_NAME: row.data.politicalparty_NAME,
-  //     contituency: row.data.contituency,
-  //     contituencyCode: row.data.contituencyCode,
-  //     assembly: row.data.assembly,
-  //     isactive: true,
-  //   };
-  //   if (row.data.isactive == "Y") {
-  //     this.politicalpartycandidateinformation.isactive = true;
-  //   } else {
-  //     this.politicalpartycandidateinformation.isactive = false;
-  //   }
-  //   // this.getelectionType();
-  //   $("#editModal").modal("show");
-  // }
+  Edit(row) {
+    // this.politicalpartycandidateinformation = {
+    //   candidate_ID: row.data.candidate_ID,
+    //   description: row.data.description,
+    //   surname: row.data.surname,
+    //   forenames: row.data.forenames,
+    //   // electiontype_ID: row.data.electiontype_ID!=null?row.data.electiontype_ID.id:null,
+    //   politicalparty_NAME: row.data.politicalparty_NAME,
+    //   contituency: row.data.contituency,
+    //   contituencyCode: row.data.contituencyCode,
+    //   assembly: row.data.assembly,
+    //   isactive: true,
+    // };
+    if (row.data.isactive == "Y") {
+      this.politicalpartycandidateinformation.isactive = true;
+    } else {
+      this.politicalpartycandidateinformation.isactive = false;
+    }
+    // this.getelectionType();
+    $("#editModal").modal("show");
+  }
 
   // APIs Call Functions
 
@@ -140,9 +140,9 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.candidate_ID) {
-              this.toastrservice.success("Success");
-              this.toastrservice.info(
-                "New Political Party Candidate Record Added"
+              this.toastrservice.success(
+                "Success",
+                "New election Information Added"
               );
               this.politicalpartycandidateinformation = response;
               this.getAll();
@@ -167,9 +167,9 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.candidate_ID) {
-              this.toastrservice.success("Success");
-              this.toastrservice.info(
-                "Political Party Candidate Record Deleted"
+              this.toastrservice.success(
+                "Success",
+                "election Information Updated"
               );
               this.politicalpartycandidateinformation = response;
               this.getAll();
@@ -207,9 +207,9 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.candidate_ID) {
-              this.toastrservice.success("Success");
-              this.toastrservice.info(
-                "Political Party Candidate Record Updated"
+              this.toastrservice.success(
+                "Success",
+                "election Information Updated"
               );
               this.politicalpartycandidateinformation = response;
               this.getAll();
