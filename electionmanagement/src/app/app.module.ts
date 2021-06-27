@@ -1,34 +1,34 @@
-import { DistrictinformationService } from './districtinformation/districtinformation.service';
-import { LookupService } from './lookup/lookup.service';
-import { ElectioninformationService } from './electioninformation/electioninformation.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component, enableProdMode } from '@angular/core';
+import { DistrictinformationService } from "./districtinformation/districtinformation.service";
+import { LookupService } from "./lookup/lookup.service";
+import { ElectioninformationService } from "./electioninformation/electioninformation.service";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule, Component, enableProdMode } from "@angular/core";
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 
 import { AppRoutingModule } from "./app-routing.module";
 
-import { FormsModule } from '@angular/forms';
-import { HttpModule, RequestOptions } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpModule, RequestOptions } from "@angular/http";
 import { IconPickerModule } from "ngx-icon-picker";
 import { DatePipe } from "@angular/common";
-import { SafePipe} from "./pipe/safe.pipe";
+import { SafePipe } from "./pipe/safe.pipe";
 import { FilterPipe } from "./pipe/filter.pipe";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from "ngx-spinner";
 // Toastr message Notification
-import { ToastrModule } from 'ngx-toastr';
-import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+import { ToastrModule } from "ngx-toastr";
+import { LoadingBarHttpClientModule } from "@ngx-loading-bar/http-client";
 // for Http import LoadingBarHttpModule:
-import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
+import { LoadingBarHttpModule } from "@ngx-loading-bar/http";
 // for Router import LoadingBarRouterModule:
-import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { LoadingBarRouterModule } from "@ngx-loading-bar/router";
 import { NgSelectModule } from "@ng-select/ng-select";
-import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarModule } from "@ngx-loading-bar/core";
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
-import{
+import {
   DxMenuModule,
   DxRangeSelectorModule,
   DxPopupModule,
@@ -41,14 +41,13 @@ import{
   DxCheckBoxModule,
   DxSelectBoxModule,
   DxDropDownButtonModule,
-  
-} from 'devextreme-angular';
-import CustomStore from 'devextreme/data/custom_store';
+} from "devextreme-angular";
+import CustomStore from "devextreme/data/custom_store";
 
 // cookies usage
-import { CookieService } from 'ngx-cookie-service';
+import { CookieService } from "ngx-cookie-service";
 // alerts sweet
-import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { SweetAlert2Module } from "@toverux/ngx-sweetalert2";
 
 import { AgGridModule } from "ag-grid-angular";
 import { DxGalleryModule } from "devextreme-angular";
@@ -63,31 +62,31 @@ import { HomeComponent } from "./dashboard/home/home.component";
 import { LoginComponent } from "./login/login.component";
 
 import { AuthGuardService } from "./guard/auth-guard.service";
-import { FooterComponent } from './dashboard/footer/footer.component';
+import { FooterComponent } from "./dashboard/footer/footer.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { Dashboard2Component } from "./dashboard2/dashboard2.component";
-import { DemoViewComponent  } from "./dashboard2/demo-view/demo-view.component";
-import { DemoViewOneComponent } from './dashboard2/demo-view/demo-view-one/demo-view-one.component';
-import { DemoViewTwoComponent } from './dashboard2/demo-view/demo-view-two/demo-view-two.component';
-import { ButtonRendererComponent } from './renderer/button-renderer.component';
-import { ViewRendererComponent } from './renderer/View-renderer.component';
-import { RequestOptionsService } from './services/setting.headers';
+import { DemoViewComponent } from "./dashboard2/demo-view/demo-view.component";
+import { DemoViewOneComponent } from "./dashboard2/demo-view/demo-view-one/demo-view-one.component";
+import { DemoViewTwoComponent } from "./dashboard2/demo-view/demo-view-two/demo-view-two.component";
+import { ButtonRendererComponent } from "./renderer/button-renderer.component";
+import { ViewRendererComponent } from "./renderer/View-renderer.component";
+import { RequestOptionsService } from "./services/setting.headers";
 
-import { LookupComponent } from './lookup/lookup.component';
-import { DriverinformationComponent } from './driverinformation/driverinformation.component';
-import { ElectioninformationComponent } from './electioninformation/electioninformation.component';
-import { ElectionblockcodeinformationComponent } from './electionblockcodeinformation/electionblockcodeinformation.component';
-import { ElectioncontituencyinformationComponent } from './electioncontituencyinformation/electioncontituencyinformation.component';
-import { ElectioncontituencypollingstationinformationComponent } from './electioncontituencypollingstationinformation/electioncontituencypollingstationinformation.component';
-import { ElectioncontituencypollingstationdetailinformationComponent } from './electioncontituencypollingstationdetailinformation/electioncontituencypollingstationdetailinformation.component';
-import { ElectioncontituencypollingstationresultinformationComponent } from './electioncontituencypollingstationresultinformation/electioncontituencypollingstationresultinformation.component';
-import { PoliticalpartyinformationComponent } from './politicalpartyinformation/politicalpartyinformation.component';
-import { PoliticalpartycandidateinformationComponent } from './politicalpartycandidateinformation/politicalpartycandidateinformation.component';
-import { PersoninformationComponent } from './personinformation/personinformation.component';
-import { DistrictinformationComponent } from './districtinformation/districtinformation.component';
-import { ElectionvoterinformationComponent } from './electionvoterinformation/electionvoterinformation.component';
-import { EventsComponent } from './politicalprofile/events/events.component';
-import { NewsComponent } from './politicalprofile/news/news.component';
+import { LookupComponent } from "./lookup/lookup.component";
+import { DriverinformationComponent } from "./driverinformation/driverinformation.component";
+import { ElectioninformationComponent } from "./electioninformation/electioninformation.component";
+import { ElectionblockcodeinformationComponent } from "./electionblockcodeinformation/electionblockcodeinformation.component";
+import { ElectioncontituencyinformationComponent } from "./electioncontituencyinformation/electioncontituencyinformation.component";
+import { ElectioncontituencypollingstationinformationComponent } from "./electioncontituencypollingstationinformation/electioncontituencypollingstationinformation.component";
+import { ElectioncontituencypollingstationdetailinformationComponent } from "./electioncontituencypollingstationdetailinformation/electioncontituencypollingstationdetailinformation.component";
+import { ElectioncontituencypollingstationresultinformationComponent } from "./electioncontituencypollingstationresultinformation/electioncontituencypollingstationresultinformation.component";
+import { PoliticalpartyinformationComponent } from "./politicalpartyinformation/politicalpartyinformation.component";
+import { PoliticalpartycandidateinformationComponent } from "./politicalpartycandidateinformation/politicalpartycandidateinformation.component";
+import { PersoninformationComponent } from "./personinformation/personinformation.component";
+import { DistrictinformationComponent } from "./districtinformation/districtinformation.component";
+import { ElectionvoterinformationComponent } from "./electionvoterinformation/electionvoterinformation.component";
+import { EventsComponent } from "./politicalprofile/events/events.component";
+import { NewsComponent } from "./politicalprofile/news/news.component";
 
 @NgModule({
   declarations: [
@@ -121,8 +120,6 @@ import { NewsComponent } from './politicalprofile/news/news.component';
     ElectionvoterinformationComponent,
     EventsComponent,
     NewsComponent,
-
-   
   ],
   imports: [
     BrowserModule,
@@ -137,7 +134,10 @@ import { NewsComponent } from './politicalprofile/news/news.component';
     LoadingBarHttpClientModule,
     LoadingBarModule.forRoot(),
     SweetAlert2Module.forRoot(),
-    AgGridModule.withComponents([ButtonRendererComponent, ViewRendererComponent]),
+    AgGridModule.withComponents([
+      ButtonRendererComponent,
+      ViewRendererComponent,
+    ]),
     NgSelectModule,
     IconPickerModule,
     NgxSpinnerModule,
@@ -153,17 +153,18 @@ import { NewsComponent } from './politicalprofile/news/news.component';
     DxCheckBoxModule,
     DxSelectBoxModule,
     DxDropDownButtonModule,
-    DxGalleryModule
+    DxGalleryModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: RequestOptions,
-      useClass: RequestOptionsService
+      useClass: RequestOptionsService,
     },
     AuthGuardService,
     DatePipe,
@@ -175,6 +176,6 @@ import { NewsComponent } from './politicalprofile/news/news.component';
     LookupService,
     DistrictinformationService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

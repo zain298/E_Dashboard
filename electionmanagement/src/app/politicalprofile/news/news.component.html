@@ -353,7 +353,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label class="control-label">Election Date </label>
+                <label class="control-label">News Date </label>
                 <input
                   type="date"
                   class="form-control"
@@ -384,7 +384,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="Election Date"
+                  name="News Title"
                   [(ngModel)]="newsinformation.news_Title"
                   maxlength="50"
                 />
@@ -394,15 +394,50 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> Event Description </label>
+                <label class="control-label"> News Image </label>
                 <input
-                  type="text"
+                  id="eventimage"
+                  type="file"
+                  accept="image/*"
                   class="form-control"
                   name="Election Date"
-                  [(ngModel)]="newsinformation.news_Desc"
+                  [(ngModel)]="newsinformation.news_image"
                   maxlength="200"
                 />
               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <form [formGroup]="editorForm" (ngSubmit)="OnSave()">
+                <div class="form-group">
+                  <label class="control-label"> News Description </label>
+
+                  <textarea
+                    formControlName="editor"
+                    class="form-control"
+                    id="mytextarea"
+                    name="mytextarea"
+                    cols="30"
+                    rows="10"
+                  >
+                  </textarea>
+                </div>
+                <button type="submit">Save</button>
+              </form>
+              <!-- <div class="form-group">
+                <label class="control-label"> News Description </label>
+                <textarea
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                  id="txtEditor"
+                  name="news desc"
+                  [(ngModel)]="newsinformation.news_Descc"
+                >
+                </textarea>
+                
+              </div> -->
             </div>
           </div>
         </div>
@@ -453,7 +488,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label class="control-label">Election Date </label>
+                <label class="control-label">News Date </label>
                 <input
                   type="date"
                   class="form-control"
@@ -494,15 +529,48 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> Event Description </label>
+                <label class="control-label"> News image </label>
                 <input
-                  type="text"
+                  type="file"
                   class="form-control"
-                  name="Election Date"
-                  [(ngModel)]="newsinformation.news_Desc"
+                  name="image"
+                  accept="image/*"
+                  [(ngModel)]="newsinformation.news_image"
                   maxlength="200"
                 />
               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <form [formGroup]="editorE" (ngSubmit)="OnSave()">
+                <div class="form-group">
+                  <label class="control-label"> News Description </label>
+
+                  <textarea
+                    formControlName="editeditor"
+                    class="form-control"
+                    id="myedittextarea"
+                    name="myedittextarea"
+                    cols="30"
+                    rows="10"
+                  >
+                  </textarea>
+                </div>
+                <button type="submit">Save</button>
+              </form>
+              <!-- <div class="form-group">
+                <label class="control-label"> News Description </label>
+                <textarea
+                  [(ngModel)]="newsinformation.news_Descc"
+                  class="form-control"
+                  id="mytextarea"
+                  name="mytextarea"
+                  cols="30"
+                  rows="10"
+                >
+                </textarea>
+              </div> -->
             </div>
           </div>
         </div>
@@ -518,3 +586,19 @@
     </div>
   </div>
 </div>
+<!-- <script
+  src="https://cdn.tiny.cloud/1/gwq6ww00eqyqklxwmbk3k56s7m5wsn4p6qg8bvot8f146wfr/tinymce/5/tinymce.min.js"
+  referrerpolicy="origin"
+></script>
+<script>
+  tinymce.init({
+    selector: "#mytextarea",
+    setup: function (editor) {
+      editor.on("change", function () {
+        editor.save();
+      });
+    },
+  });
+
+  $("#mytextarea").tinymce().save();
+</script> -->
