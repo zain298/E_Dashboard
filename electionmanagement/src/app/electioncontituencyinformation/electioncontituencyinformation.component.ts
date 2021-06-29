@@ -6,8 +6,6 @@ import { ElectioncontituencyinformationService } from "../electioncontituencyinf
 import { ToastrService } from "ngx-toastr";
 import { LookupService } from "../lookup/lookup.service";
 import { ElectioninformationService } from "./../electioninformation/electioninformation.service";
-
-// import {ElectioninformationService} from "../electioninformation/electioninformation.service";
 declare var $: any;
 
 @Component({
@@ -23,6 +21,7 @@ export class ElectioncontituencyinformationComponent implements OnInit {
   assemblyType = [];
   currenctRecordData: {};
   electioncontituencyinformation = {
+    election_description:"",
     assembly_ID: 0,
     district_ID: 0,
     contituency_ID: 0,
@@ -63,8 +62,10 @@ export class ElectioncontituencyinformationComponent implements OnInit {
 
   AddNew() {
     this.getDistrictData();
+    this.getElectionData();
     console.log(this.districtinformationAll);
     this.electioncontituencyinformation = {
+      election_description:"",
       assembly_ID: 0,
       district_ID: 0,
       contituency_ID: 0,
@@ -88,32 +89,48 @@ export class ElectioncontituencyinformationComponent implements OnInit {
     console.log(row);
     this.getContituencyId(row.data.contituency_ID);
     this.getDistrictData();
+    this.getElectionData();
+    this.getAssemblyType();
     this.electioncontituencyinformation = {
+      election_description:`${row.data.election_ID.election_TYPE.description} ${row.data.election_ID.election_DATE}`,
       assembly_ID: row.data.assembly_ID,
-      district_NAME: row.data.district_NAME,
+      district_NAME: row.data.district_ID.district_NAME,
       district_ID: row.data.district_ID,
-      contituency_ID: row.data.contiuency_ID,
-      election_ID: row.data.contiuency_ID,
+      contituency_ID: row.data.contituency_ID,
+      election_ID: row.data.election_ID.election_ID,
       contituency_CODE: row.data.contituency_CODE,
       contituency_DESC: row.data.contituency_DESC,
-      description: row.data.description,
+      description: row.data.assembly_ID.description,
       // electiontype_ID: row.data.electiontype_ID!=null?row.data.electiontype_ID.id:null,
       isactive: true,
     };
-    console.log(row);
     if (row.data.isactive == "Y") {
       this.electioncontituencyinformation.isactive = true;
     } else {
       this.electioncontituencyinformation.isactive = false;
     }
-    this.getAssemblyType();
+   
     $("#editModal").modal("show");
   }
 
-  Delete() {}
-  // console.log("currentRecordData");
-  // console.log(currenctRecordData);
-  // APIs Call Functions
+  Delete(row) {
+    this.electioncontituencyinformationservice.delete(row.data.contituency_ID).subscribe(response => {
+      if(response) {
+        if (response.error && response.status) {
+          this.toastrservice.warning("Message", " " + response.message);
+        } else if (response.contituency_ID) {
+          this.toastrservice.success("Success", "Record Deleted");
+          this.electioncontituencyinformation = response;
+          this.getAll();
+          $("#editModal").modal("hide");
+        } else {
+          this.toastrservice.error("Something went wrong");
+        }
+      }
+    }, error => {
+      this.onfailservice.onFail(error);
+    })
+  }
 
   getAll() {
     this.electioncontituencyinformationservice.getAll().subscribe(
@@ -134,8 +151,9 @@ export class ElectioncontituencyinformationComponent implements OnInit {
   }
 
   add(electioncontituencyinformation) {
-    if ((electioncontituencyinformation.description = "")) {
+    if (electioncontituencyinformation.description == "") {
       electioncontituencyinformation.assembly_ID = this.assemblyType[0].id;
+      console.log(electioncontituencyinformation.assembly_ID)
     } else {
       for (let assembly in this.assemblyType) {
         if (
@@ -147,7 +165,7 @@ export class ElectioncontituencyinformationComponent implements OnInit {
         }
       }
     }
-    if ((electioncontituencyinformation.district_NAME = "")) {
+    if (electioncontituencyinformation.district_NAME == "") {
       electioncontituencyinformation.district_ID =
         this.districtinformationAll[0].district_ID;
     } else {
@@ -161,25 +179,27 @@ export class ElectioncontituencyinformationComponent implements OnInit {
         }
       }
     }
-    // if (electionblockcodeinformation.areaType == "") {
-    //   electionblockcodeinformation.areatype_ID = this.areatypeActive[0].id;
-    // } else {
-    //   for (let areaType in this.areatypeActive) {
-    //     if (
-    //       electionblockcodeinformation.areaType ==
-    //       this.areatypeActive[areaType].description
-    //     ) {
-    //       electionblockcodeinformation.areatype_ID =
-    //         this.areatypeActive[areaType].id;
-    //     }
-    //   }
-    // }
 
     if (electioncontituencyinformation.electiontype_ID != null) {
       electioncontituencyinformation.electiontype_ID =
         electioncontituencyinformation.electiontype_ID.id;
     } else {
       electioncontituencyinformation.electiontype_ID == null;
+    }
+
+    if (electioncontituencyinformation.election_description == "") {
+      electioncontituencyinformation.election_ID =
+        this.electioninformationAll[0].election_ID;
+    } else {
+      for (let election in this.electioninformationAll) {
+        if (
+          this.electioncontituencyinformation.election_description ==
+          this.electioninformationAll[election].election_TYPE.description+this.electioninformationAll[election].election_DATE
+        ) {
+          electioncontituencyinformation.election_ID =
+            this.electioninformationAll[election].election_ID;
+        }
+      }
     }
     this.electioncontituencyinformationservice
       .add(electioncontituencyinformation)
@@ -209,8 +229,8 @@ export class ElectioncontituencyinformationComponent implements OnInit {
   }
 
   update(electioncontituencyinformation) {
-    console.log(electioncontituencyinformation);
-    if ((electioncontituencyinformation.district_NAME = "")) {
+    console.log(this.electioncontituencyinformation.contituency_CODE)
+    if (electioncontituencyinformation.district_NAME == "") {
       electioncontituencyinformation.district_ID =
         this.districtinformationAll[0].district_ID;
     } else {
@@ -224,7 +244,7 @@ export class ElectioncontituencyinformationComponent implements OnInit {
         }
       }
     }
-    if ((electioncontituencyinformation.description = "")) {
+    if (electioncontituencyinformation.description == "") {
       electioncontituencyinformation.assembly_ID = this.assemblyType[0].id;
     } else {
       for (let assembly in this.assemblyType) {
@@ -251,7 +271,7 @@ export class ElectioncontituencyinformationComponent implements OnInit {
     this.electioncontituencyinformationservice
       .update(
         electioncontituencyinformation,
-        electioncontituencyinformation.assembly_ID
+        electioncontituencyinformation.contituency_ID
       )
       .subscribe(
         (response) => {
