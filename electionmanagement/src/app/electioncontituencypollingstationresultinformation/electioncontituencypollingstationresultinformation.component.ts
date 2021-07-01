@@ -260,7 +260,7 @@ export class ElectioncontituencypollingstationresultinformationComponent
               this.getAll();
               $("#editModal").modal("hide");
             } else {
-              this.toastrservice.error("Some thing went wrong");
+              this.toastrservice.error("Something went wrong");
             }
           }
         },

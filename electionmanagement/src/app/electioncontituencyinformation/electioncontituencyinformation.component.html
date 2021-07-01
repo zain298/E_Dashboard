@@ -49,9 +49,6 @@
                             <dxo-search-panel
                               [visible]="true"
                             ></dxo-search-panel>
-                            <!-- <dxo-paging [pageSize]="8"></dxo-paging>
-                          <dxo-group-panel [visible]="true"></dxo-group-panel> 
-                          <dxo-grouping [autoExpandAll]="false"></dxo-grouping> -->
                             <dxo-scrolling mode="virtual"></dxo-scrolling>
                             <dxo-sorting mode="multiple"></dxo-sorting>
                             <dxo-selection mode="single"></dxo-selection>
@@ -71,15 +68,6 @@
                               cellTemplate="delTemplate"
                             >
                             </dxi-column>
-                            <!-- <dxi-column
-                              [width]="100"
-                              dataField="contituency_ID"
-                              caption="Contituency ID"
-                              alignment="center"
-                              cssClass="myClass"
-                              sortOrder="asc"
-                            >
-                            </dxi-column> -->
                             <dxi-column
                               [width]=""
                               dataField="contituency_CODE"
@@ -112,13 +100,7 @@
                               alignment="center"
                               cssClass="myClass"
                             ></dxi-column>
-                            <!-- <dxi-column 
-                            [width]="100" 
-                            dataField="isactive"
-                            caption="Active"
-                            cssClass="myClass"
-                            alignment="center"
-                          ></dxi-column> -->
+                            
                             <div *dxTemplate="let data of 'cellTemplate'">
                               <button
                                 class="
@@ -230,7 +212,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label"
-                  >District<span style="color: red">*</span></label
+                  >Election<span style="color: red">*</span></label
                 >
                 <ng-select
                   [(ngModel)]="electioncontituencyinformation.election_description"
@@ -250,16 +232,6 @@
                 <label class="control-label"
                   >Assembly<span style="color: red">*</span></label
                 >
-                <!-- <input
-                  type="text"
-                  class="form-control"
-                  name="forenames"
-                  [(ngModel)]="electioncontituencyinformation.description"
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
-                  #code="ngModel"
-                  required
-                /> -->
                 <ng-select
                   [(ngModel)]="electioncontituencyinformation.description"
                   name="description"
