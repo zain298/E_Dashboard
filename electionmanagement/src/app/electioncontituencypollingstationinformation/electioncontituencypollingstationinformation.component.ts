@@ -3,7 +3,7 @@ import { OnFailService } from "../services/on-fail.service";
 import { ElectioncontituencypollingstationinformationService } from "../electioncontituencypollingstationinformation/electioncontituencypollingstationinformation.service";
 import { ToastrService } from "ngx-toastr";
 import { LookupService } from "../lookup/lookup.service";
-
+import { ElectioncontituencyinformationService } from "../electioncontituencyinformation/electioncontituencyinformation.service";
 declare var $: any;
 
 @Component({
@@ -17,11 +17,13 @@ export class ElectioncontituencypollingstationinformationComponent
   entitylist = [];
   electioncontituencypollingstationinformationAll = [];
   electiontypeActive = [];
+  electioncontituencyinformationAll = [];
   electioncontituencypollingstationinformation = {
     pollingstation_ID: 0,
-
+    contituency_ID: 0,
     description: "", //pollingStationName
     pollingstation_CODE: "",
+    POLLINGSTATION_CODE:"",
     Contituency: "",
     district_NAME: "",
     //description: '',//province
@@ -29,6 +31,7 @@ export class ElectioncontituencypollingstationinformationComponent
   };
   orderno = [];
   constructor(
+    private electioncontituencyinformationservice: ElectioncontituencyinformationService,
     private electioncontituencypollingstationinformationservice: ElectioncontituencypollingstationinformationService,
     private onfailservice: OnFailService,
     private toastrservice: ToastrService,
@@ -56,14 +59,16 @@ export class ElectioncontituencypollingstationinformationComponent
   AddNew() {
     this.electioncontituencypollingstationinformation = {
       pollingstation_ID: 0,
+      POLLINGSTATION_CODE:"",
       description: "",
       pollingstation_CODE: "",
       Contituency: "",
       district_NAME: "",
+      contituency_ID: 0,
       // description: '',
       isactive: true,
     };
-    this.getElectionType();
+    this.getAllContituencies();
     $("#addModal").modal("show");
   }
 
@@ -71,22 +76,42 @@ export class ElectioncontituencypollingstationinformationComponent
     $("#addModal").modal("show");
   }
 
+  getAllContituencies() {
+    this.electioncontituencyinformationservice.getAll().subscribe(
+      (response) => {
+        if (response) {
+          console.log(response);
+          if (response.error && response.status) {
+            this.toastrservice.warning("Message", " " + response.message);
+          } else {
+            this.electioncontituencyinformationAll = response;
+          }
+        }
+      },
+      (error) => {
+        this.onfailservice.onFail(error);
+      }
+    );
+  }
+
   Edit(row) {
     this.electioncontituencypollingstationinformation = {
       pollingstation_ID: row.data.pollingstation_ID,
       description: row.data.description,
+      contituency_ID: row.data.contituency_ID.contituency_ID,
       pollingstation_CODE: row.data.pollingstation_CODE,
-      Contituency: row.data.Contituency,
+      POLLINGSTATION_CODE:row.data.pollingstation_CODE,
+      Contituency: row.data.contituency_ID.contituency_CODE,
       district_NAME: row.data.district_NAME,
       // description: row.data.description,
       isactive: true,
     };
+    this.getAllContituencies();
     if (row.data.isactive == "Y") {
       this.electioncontituencypollingstationinformation.isactive = true;
     } else {
       this.electioncontituencypollingstationinformation.isactive = false;
     }
-    this.getElectionType();
     $("#editModal").modal("show");
   }
 
@@ -134,6 +159,19 @@ export class ElectioncontituencypollingstationinformationComponent
   }
 
   add(electioncontituencypollingstationinformation) {
+    if (electioncontituencypollingstationinformation.Contituency == "") {
+      electioncontituencypollingstationinformation.Contituency = this.electioncontituencyinformationAll[0].contituency_ID;
+    } else {
+      for (let contituency in this.electioncontituencyinformationAll) {
+        if (
+          electioncontituencypollingstationinformation.Contituency ==
+          this.electioncontituencyinformationAll[contituency].contituency_CODE
+        ) {
+          electioncontituencypollingstationinformation.contituency_ID =
+            this.electioncontituencyinformationAll[contituency].contituency_ID;
+        }
+      }
+    }
     if (electioncontituencypollingstationinformation.electiontype_ID != null) {
       electioncontituencypollingstationinformation.electiontype_ID =
         electioncontituencypollingstationinformation.electiontype_ID.id;
@@ -168,6 +206,19 @@ export class ElectioncontituencypollingstationinformationComponent
   }
 
   update(electioncontituencypollingstationinformation) {
+    if (electioncontituencypollingstationinformation.Contituency == "") {
+      electioncontituencypollingstationinformation.Contituency = this.electioncontituencyinformationAll[0].contituency_ID;
+    } else {
+      for (let contituency in this.electioncontituencyinformationAll) {
+        if (
+          electioncontituencypollingstationinformation.Contituency ==
+          this.electioncontituencyinformationAll[contituency].contituency_CODE
+        ) {
+          electioncontituencypollingstationinformation.contituency_ID =
+            this.electioncontituencyinformationAll[contituency].contituency_ID;
+        }
+      }
+    }
     if (electioncontituencypollingstationinformation.isactive == true) {
       electioncontituencypollingstationinformation.isactive = "Y";
     } else {
