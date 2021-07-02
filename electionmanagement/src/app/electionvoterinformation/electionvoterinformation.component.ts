@@ -13,17 +13,18 @@ declare var $: any;
 })
 export class ElectionvoterinformationComponent implements OnInit {
   entitylist = [];
+  castedOptionAll = [];
   ElectionvoterinformationAll = [];
-  electiontypeActive = [];
   Electionvoterinformation = {
     voter_ID: 0,
+    serial_NO:1,
     name: "",
     father_NAME: "",
     cnic: "",
-    //electiontype_ID: {},
+    blockcode: "",
+    iscasted: "",
     address: "",
     family_NO: "",
-    // blockcode:'',
     isactive: true,
   };
   orderno = [];
@@ -54,16 +55,16 @@ export class ElectionvoterinformationComponent implements OnInit {
     this.Electionvoterinformation = {
       voter_ID: 0,
       name: "",
+      serial_NO:1,
+      iscasted: "",
       father_NAME: "",
       cnic: "",
-      //electiontype_ID: {},
       address: "",
+      blockcode: "",
       family_NO: "",
-      //  blockcode:'',
-
       isactive: true,
     };
-    // this.getelectionType();
+    this.getCastedOptions();
     $("#addModal").modal("show");
   }
 
@@ -96,15 +97,17 @@ export class ElectionvoterinformationComponent implements OnInit {
   Edit(row) {
     this.Electionvoterinformation = {
       voter_ID: row.data.voter_ID,
+      iscasted: row.data.iscasted,
+      serial_NO:row.data.serial_NO,
       name: row.data.name,
+      blockcode: row.data.blockcode,
       father_NAME: row.data.father_NAME,
       cnic: row.data.cnic,
-      // electiontype_ID: row.data.electiontype_ID!=null?row.data.electiontype_ID.id:null,
       address: row.data.address,
       family_NO: row.data.family_NO,
-      // blockcode:row.data.blockcode,
       isactive: true,
     };
+    this.getCastedOptions();
     if (row.data.isactive == "Y") {
       this.Electionvoterinformation.isactive = true;
     } else {
@@ -116,6 +119,9 @@ export class ElectionvoterinformationComponent implements OnInit {
 
   // APIs Call Functions
 
+  getCastedOptions() {
+    this.castedOptionAll = ["Y", "N"];
+  }
   getAll() {
     this.Electionvoterinformationservice.getAll().subscribe(
       (response) => {
