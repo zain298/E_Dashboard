@@ -170,8 +170,6 @@ export class ElectioncontituencypollingstationresultinformationComponent
   }
 
   add(electioncontituencypollingstationresultinformation) {
-    console.log("adding...")
-    console.log(electioncontituencypollingstationresultinformation.candidate_name)
     if (
       electioncontituencypollingstationresultinformation.candidate_name == ""
     ) {
