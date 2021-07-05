@@ -20,7 +20,6 @@ export class PoliticalpartyinformationComponent implements OnInit {
     politicalparty_NAME: "",
     politicalparty_SYMBOL: "",
     politicalpartyleader_NAME: "",
-    // electiontype_ID: {},
     politicalparty_ADDRESS: "",
     isactive: true,
   };

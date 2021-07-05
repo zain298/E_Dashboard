@@ -21,8 +21,6 @@ export class DistrictinformationComponent implements OnInit {
     district_NAME: "",
     description: "",
     provinces_ID: 0,
-    // electiontype_ID: {},
-    // electioning_PATH: '',
     isactive: true,
   };
   orderno = [];
@@ -56,7 +54,6 @@ export class DistrictinformationComponent implements OnInit {
       district_NAME: "",
       description: "",
       provinces_ID: 0,
-      //  electioning_PATH: '',
       isactive: true,
     };
     this.getProvinceType();
@@ -73,9 +70,7 @@ export class DistrictinformationComponent implements OnInit {
       district_CODE: row.data.district_CODE,
       district_NAME: row.data.district_NAME,
       provinces_ID: row.data.provinces_ID,
-      description: row.data.description,
-      // electiontype_ID: row.data.electiontype_ID!=null?row.data.electiontype_ID.id:null,
-      // electioning_PATH: row.data.electioning_PATH,
+      description: row.data.provinces_ID.description,
       isactive: true,
     };
     if (row.data.isactive == "Y") {
@@ -110,7 +105,7 @@ export class DistrictinformationComponent implements OnInit {
   add(districtinformation) {
     if ((districtinformation.description = "")) {
       districtinformation.provinces_ID = this.provincetypeActive[0].id;
-    } else if (districtinformation.descripton != "") {
+    } else{
       for (let province in this.provincetypeActive) {
         if (
           (districtinformation.description =
@@ -137,7 +132,7 @@ export class DistrictinformationComponent implements OnInit {
           } else if (response.district_ID) {
             this.toastrservice.success(
               "Success",
-              "New election Information Added"
+              "District Information Added"
             );
             this.districtinformation = response;
             this.getAll();
@@ -168,7 +163,7 @@ export class DistrictinformationComponent implements OnInit {
             this.getAll();
             $("#editModal").modal("hide");
           } else {
-            this.toastrservice.error("Some thing went wrong");
+            this.toastrservice.error("Something went wrong");
           }
         }
       },
@@ -180,7 +175,7 @@ export class DistrictinformationComponent implements OnInit {
   update(districtinformation) {
     if ((districtinformation.description = "")) {
       districtinformation.provinces_ID = this.provincetypeActive[0].id;
-    } else if (districtinformation.descripton != "") {
+    } else{
       for (let province in this.provincetypeActive) {
         if (
           (districtinformation.description =
@@ -192,31 +187,12 @@ export class DistrictinformationComponent implements OnInit {
       }
     }
 
-    // if ((electioncontituencyinformation.description = "")) {
-    //   electioncontituencyinformation.assembly_ID = this.assemblyType[0].id;
-    // } else {
-    //   for (let assembly in this.assemblyType) {
-    //     if (
-    //       electioncontituencyinformation.description ==
-    //       this.assemblyType[assembly].description
-    //     ) {
-    //       electioncontituencyinformation.assembly_ID =
-    //         this.assemblyType[assembly].id;
-    //     }
-    //   }
-    // }
-
     if (districtinformation.isactive == true) {
       districtinformation.isactive = "Y";
     } else {
       districtinformation.isactive = "N";
     }
-    // if (districtinformation.electiontype_ID != null) {
-    //   districtinformation.electiontype_ID =
-    //     districtinformation.electiontype_ID.id;
-    // } else {
-    //   districtinformation.electiontype_ID == null;
-    // }
+  
     this.districtinformationservice
       .update(districtinformation, districtinformation.district_ID)
       .subscribe(
@@ -227,13 +203,13 @@ export class DistrictinformationComponent implements OnInit {
             } else if (response.district_ID) {
               this.toastrservice.success(
                 "Success",
-                "election Information Updated"
+                "District Information Updated"
               );
               this.districtinformation = response;
               this.getAll();
               $("#editModal").modal("hide");
             } else {
-              this.toastrservice.error("Some thing went wrong");
+              this.toastrservice.error("Something went wrong");
             }
           }
         },

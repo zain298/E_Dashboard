@@ -288,7 +288,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="title"
+                  name="district code"
                   [(ngModel)]="districtinformation.district_CODE"
                   maxlength="50"
                 />
@@ -304,7 +304,7 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="surname"
+                  name="name district"
                   [(ngModel)]="districtinformation.district_NAME"
                   maxlength="50"
                   [ngClass]="{ 'is-invalid': code.invalid }"
@@ -316,24 +316,10 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label"
-                  >Province<span style="color: red">*</span></label
-                >
-                <!-- <input
-                  type="text"
-                  class="form-control"
-                  name="forenames"
-                  [(ngModel)]="districtinformation.province"
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
-                  #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
-                /> -->
+                <label class="control-label"> Province Name </label>
                 <ng-select
                   [(ngModel)]="districtinformation.description"
-                  name="Province Name"
-                  ng-init="districtinformation.description"
+                  name="province"
                 >
                   <ng-option
                     *ngFor="let province of provincetypeActive"
