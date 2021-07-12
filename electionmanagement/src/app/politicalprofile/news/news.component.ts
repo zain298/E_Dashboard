@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
+// import { FILE } from "dns";
 declare var $: any;
 @Component({
   selector: "app-news",
@@ -17,20 +18,23 @@ export class NewsComponent implements OnInit {
     news_Title: "",
     isactive: true,
   };
-  editorE: FormGroup;
+  // static editorE: FormGroup;
   constructor() {
-    this.editorE = new FormGroup({
-      editeditor: new FormControl("boi"),
-    });
+    // this.editorE = new FormGroup({
+    //   editeditor: new FormControl("boi"),
+    // });
   }
+  // editorE: FormGroup;
+  editorE = new FormGroup({
+    editeditor: new FormControl("<b>boiii</b>"),
+  });
+  // editorForm: FormGroup;
+  editorForm = new FormGroup({
+    editor: new FormControl(""),
+  });
 
-  editorForm: FormGroup;
   // var text=Document.getElementById("mytextarea");
-  ngOnInit() {
-    this.editorForm = new FormGroup({
-      editor: new FormControl(""),
-    });
-  }
+  ngOnInit() {}
   // ngOnChanges(editorVal: any) {
   //   this.editorForm = new FormGroup({
   //     editor: new FormControl(editorVal),
@@ -41,7 +45,9 @@ export class NewsComponent implements OnInit {
     var message = $("#mytextarea").val();
     console.log("OnSave() -> textarea value: " + message);
   }
-
+  // onfilechanged(event) {
+  //   console.log("bhaii yeh kiya: " + event.target.files[0].name);
+  // }
   AddNew() {
     // var editorVal = "";
     // this.ngOnChanges(editorVal);
@@ -51,12 +57,14 @@ export class NewsComponent implements OnInit {
     // $("#mytextarea").tinymce().save();
   }
 
-  Edit(row) {
+  Edit() {
+    // NewsComponent.editorE
+    this.editorE = new FormGroup({ editeditor: new FormControl("zain") });
+    $("#editModal").modal("show");
+
     // console.log(row);
     // var valueee = { val: "d" };
     // this.editorE.patchValue({ editeditor: "boi how" });
-
-    $("#editModal").modal("show");
   }
   Delete() {}
 
@@ -64,21 +72,31 @@ export class NewsComponent implements OnInit {
     // let value = document.getElementById("eventDes").nodeValue;
     // console.log(value);
     // $("#mytextarea").tinymce().save();
+    //for image name
+
+    let img = newsinformation.news_image;
+    let image_name = img.split(`\\`);
+    newsinformation.news_image = image_name[2];
+
+    //for getting textarea value
 
     var message = $("#mytextarea").val();
-    console.log("textarea message: " + message);
     this.textareaValue = message;
+    console.log("textarea message: " + message);
     console.log("textarea value: " + this.textareaValue);
     console.log("typeof-> textarea value: " + typeof this.textareaValue);
-
+    //setting textarea value in in json array
     newsinformation.news_Descc = this.textareaValue;
     console.log(newsinformation);
+
     // this.getTextArea();
     // console.log("ReactiveForm value: " + this.textareaValue);
     // console.log("ReactiveForm value: " + this.editorForm.value);
     // console.log("ReactiveForm value: " + JSON.stringify(this.editorForm.value));
   }
-  update() {}
+  update() {
+    this.editorE.get("editeditor").value;
+  }
   // getTextArea() {
   //   let value = document.getElementById("mytextarea"); // Gets value of 'inputMethod' textarea
   //   console.log(value); // Prints value to console

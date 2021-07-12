@@ -1,3 +1,4 @@
+import { SocialaccountsComponent } from "./socialaccounts/socialaccounts.component";
 import { EventsComponent } from "./politicalprofile/events/events.component";
 import { NewsComponent } from "./politicalprofile/news/news.component";
 import { DistrictinformationComponent } from "./districtinformation/districtinformation.component";
@@ -74,6 +75,7 @@ const appRoutes: Routes = [
       },
       { path: "news", component: NewsComponent },
       { path: "events", component: EventsComponent },
+      { path: "social-accounts", component: SocialaccountsComponent },
 
       { path: "**", component: NotFoundComponent },
     ],

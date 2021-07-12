@@ -1,0 +1,481 @@
+<div class="row pt-4">
+  <div class="col-sm-12">
+    <div class="element-wrapper">
+      <div class="element-content">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel-group">
+              <div class="pipeline white lined-primary">
+                <div class="pipeline-header">
+                  <span class="pipeline-name"
+                    ><b
+                      ><i class="fa fa-columns faw"></i> Social Accounts
+                    </b></span
+                  >
+                  <!-- <button
+                    class="
+                      btn btn-default btn-white btn-rounded btn-lg
+                      float-right
+                    "
+                    (click)="AddNew()"
+                  >
+                    <i class="fa fa-plus faw" aria-hidden="true"></i> Add New
+                  </button> -->
+                </div>
+              </div>
+              <div class="element-content">
+                <div class="tablo-with-chart">
+                  <div class="row">
+                    <div class="col-sm-7 col-xxl-8">
+                      <div
+                        class="element-box pl-xxl-5 pr-xxl-5"
+                        style="
+                          background: rgb(158, 34, 195);
+                          background: linear-gradient(
+                            0deg,
+                            rgba(158, 34, 195, 0.6699054621848739) 0%,
+                            rgba(45, 253, 233, 0.6699054621848739) 100%
+                          );
+                        "
+                      >
+                        <div class="el-tablo bigger highlight bold-label">
+                          <div class="value" style="color: rgb(97, 97, 255)">
+                            <i
+                              class="fa fa-facebook"
+                              aria-hidden="true"
+                              style="color: rgb(97, 97, 255)"
+                            ></i
+                            >acebook
+                          </div>
+                          <div class="label"></div>
+                        </div>
+                        <div class="el-chart-w">
+                          <a
+                            class="
+                              element-box
+                              el-tablo
+                              centered
+                              padded
+                              bold-label
+                            "
+                            href="https://www.facebook.com/Election-Management-104120661940124/"
+                            style="background-color: rgb(255, 255, 255)"
+                          >
+                            <div class="value">
+                              <i
+                                class="fa fa-facebook-official"
+                                aria-hidden="true"
+                                style="color: rgb(97, 97, 255)"
+                              ></i>
+                            </div>
+                            <div class="label">Election Managment</div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-5 col-xxl-4">
+                      <div class="tablos">
+                        <div class="row mb-xl-2 mb-xxl-3">
+                          <div
+                            class="col-sm-6"
+                            (click)="message()"
+                            style="user-select: none"
+                          >
+                            <a
+                              class="
+                                element-box
+                                el-tablo
+                                centered
+                                trend-in-corner
+                                padded
+                                bold-label
+                              "
+                              style="
+                                background-color: rgb(205, 245, 235);
+                                cursor: pointer;
+                              "
+                            >
+                              <div class="label">Post</div>
+                              <div class="value">Text</div>
+
+                              <div class="trending trending-up-basic">
+                                <span>
+                                  <i
+                                    class="fa fa-plus faw"
+                                    aria-hidden="true"
+                                  ></i
+                                ></span>
+                              </div>
+                            </a>
+                          </div>
+                          <div
+                            class="col-sm-6"
+                            (click)="link()"
+                            style="user-select: none"
+                          >
+                            <a
+                              class="
+                                element-box
+                                el-tablo
+                                centered
+                                trend-in-corner
+                                padded
+                                bold-label
+                              "
+                              style="
+                                background-color: rgb(242, 205, 245);
+                                cursor: pointer;
+                              "
+                            >
+                              <div class="label">Post</div>
+                              <div class="value">Link</div>
+
+                              <div class="trending trending-up-basic">
+                                <span>
+                                  <i
+                                    class="fa fa-plus faw"
+                                    aria-hidden="true"
+                                  ></i
+                                ></span>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div
+                            class="col-sm-6"
+                            style="user-select: none"
+                            (click)="image()"
+                            style="user-select: none"
+                          >
+                            <a
+                              class="
+                                element-box
+                                el-tablo
+                                centered
+                                trend-in-corner
+                                padded
+                                bold-label
+                              "
+                              style="
+                                background: rgb(255, 255, 255);
+                                background: radial-gradient(
+                                  circle,
+                                  rgba(255, 255, 255, 0) 0%,
+                                  rgba(181, 195, 193, 1) 28%
+                                );
+                                cursor: pointer;
+                                cursor: pointer;
+                              "
+                            >
+                              <div class="label">Post</div>
+                              <div class="value">Image</div>
+
+                              <div class="trending trending-up-basic">
+                                <span>
+                                  <i
+                                    class="fa fa-plus faw"
+                                    aria-hidden="true"
+                                  ></i
+                                ></span>
+                              </div>
+                            </a>
+                          </div>
+                          <!-- <div
+                            class="col-sm-6"
+                            (click)="video()"
+                            style="user-select: none"
+                          >
+                            <a
+                              class="
+                                element-box
+                                el-tablo
+                                centered
+                                trend-in-corner
+                                padded
+                                bold-label
+                              "
+                              style="
+                                background-color: rgb(245, 205, 208);
+                                cursor: pointer;
+                              "
+                            >
+                              <div class="label">Post</div>
+                              <div class="value">Video</div>
+
+                              <div class="trending trending-up-basic">
+                                <span>
+                                  <i
+                                    class="fa fa-plus faw"
+                                    aria-hidden="true"
+                                  ></i
+                                ></span>
+                              </div>
+                            </a>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  aria-labelledby="exampleModalLabel"
+  class="modal fade show"
+  id="textModal"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="fa fa-plus" aria-hidden="true"></i> POST Text Message to
+          Facebook
+        </h5>
+        <button
+          aria-label="Close"
+          class="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span aria-hidden="true"> ×</span>
+        </button>
+      </div>
+      <form
+        action=""
+        class="form"
+        (ngSubmit)="f.form.valid && PostMesssage(textmessage)"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Message</label>
+
+                <textarea
+                  class="form-control"
+                  id="message"
+                  name="message"
+                  [(ngModel)]="textmessage"
+                  cols="30"
+                  rows="10"
+                >
+                </textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+            <i class="fa fa-plus" aria-hidden="true"></i> Post
+          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div
+  aria-labelledby="exampleModalLabel"
+  class="modal fade show"
+  id="linkModal"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="fa fa-plus" aria-hidden="true"></i> POST Link to Facebook
+        </h5>
+        <button
+          aria-label="Close"
+          class="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span aria-hidden="true"> ×</span>
+        </button>
+      </div>
+      <form
+        action=""
+        class="form"
+        (ngSubmit)="f.form.valid && PostLink(linkcaption, linkurl)"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Message</label>
+
+                <textarea
+                  class="form-control"
+                  id="linkcap"
+                  name="linkcap"
+                  [(ngModel)]="linkcaption"
+                  cols="30"
+                  rows="10"
+                >
+                </textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Link</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  name="link"
+                  [(ngModel)]="linkurl"
+                  maxlength="200"
+                  placeholder="www.facebook.com"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+            <i class="fa fa-plus" aria-hidden="true"></i> Post
+          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div
+  aria-labelledby="exampleModalLabel"
+  class="modal fade show"
+  id="imageModal"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="fa fa-plus" aria-hidden="true"></i> POST Image to Facebook
+        </h5>
+        <button
+          aria-label="Close"
+          class="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span aria-hidden="true"> ×</span>
+        </button>
+      </div>
+      <form
+        action=""
+        class="form"
+        (ngSubmit)="f.form.valid && PostImage(imageurl)"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Image URL</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  name="image"
+                  [(ngModel)]="imageurl"
+                  maxlength="200"
+                  placeholder="Place Image URL here"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+            <i class="fa fa-plus" aria-hidden="true"></i> Post
+          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div
+  aria-labelledby="exampleModalLabel"
+  class="modal fade show"
+  id="videoModal"
+  role="dialog"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class="fa fa-plus" aria-hidden="true"></i> POST Video to Facebook
+        </h5>
+        <button
+          aria-label="Close"
+          class="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span aria-hidden="true"> ×</span>
+        </button>
+      </div>
+      <form
+        action=""
+        class="form"
+        (ngSubmit)="f.form.valid && PostVideo()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Video URL</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  name="video()"
+                  [(ngModel)]="videourl"
+                  maxlength="200"
+                  placeholder="Place Video URL here"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+            <i class="fa fa-plus" aria-hidden="true"></i> Post
+          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

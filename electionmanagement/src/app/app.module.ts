@@ -87,6 +87,7 @@ import { DistrictinformationComponent } from "./districtinformation/districtinfo
 import { ElectionvoterinformationComponent } from "./electionvoterinformation/electionvoterinformation.component";
 import { EventsComponent } from "./politicalprofile/events/events.component";
 import { NewsComponent } from "./politicalprofile/news/news.component";
+import { SocialaccountsComponent } from './socialaccounts/socialaccounts.component';
 
 @NgModule({
   declarations: [
@@ -120,6 +121,7 @@ import { NewsComponent } from "./politicalprofile/news/news.component";
     ElectionvoterinformationComponent,
     EventsComponent,
     NewsComponent,
+    SocialaccountsComponent,
   ],
   imports: [
     BrowserModule,
