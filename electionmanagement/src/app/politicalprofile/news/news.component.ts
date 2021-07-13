@@ -1,5 +1,8 @@
+import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
+import { ToastrService } from "ngx-toastr";
+import { NewsService } from "./news.service";
 // import { FILE } from "dns";
 declare var $: any;
 @Component({
@@ -9,9 +12,11 @@ declare var $: any;
 })
 export class NewsComponent implements OnInit {
   public textareaValue: string;
+  selectedFile: File;
   newsinformation = {
     news_ID: 0,
     news_DATE: "",
+    imageId: 0,
     news_image: "",
     news_Descc: "",
     news_Auther: "",
@@ -19,7 +24,11 @@ export class NewsComponent implements OnInit {
     isactive: true,
   };
   // static editorE: FormGroup;
-  constructor() {
+  constructor(
+    private httpClient: HttpClient,
+    private eventsService: NewsService,
+    private toastrservice: ToastrService
+  ) {
     // this.editorE = new FormGroup({
     //   editeditor: new FormControl("boi"),
     // });
@@ -56,6 +65,53 @@ export class NewsComponent implements OnInit {
     $("#addModal").modal("show");
     // $("#mytextarea").tinymce().save();
   }
+  public onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+  add(newsinformation) {
+    //  for getting textarea value
+
+    var message = $("#mytextarea").val();
+    this.textareaValue = message;
+    console.log("textarea message: " + message);
+    console.log("textarea value: " + this.textareaValue);
+    console.log("typeof-> textarea value: " + typeof this.textareaValue);
+    //setting textarea value in in json array
+    newsinformation.news_Descc = this.textareaValue;
+    console.log(newsinformation);
+
+    const uploadImageData = new FormData();
+    uploadImageData.append(
+      "imageFile",
+      this.selectedFile,
+      this.selectedFile.name
+    );
+
+    this.httpClient
+      .post(
+        "https://testing-spring-app.herokuapp.com/news/upload",
+        uploadImageData,
+        { observe: "response" }
+      )
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this.newsinformation.imageId = Number.parseInt(
+            response.body.toString()
+          );
+          this.httpClient
+            .post(
+              "https://testing-spring-app.herokuapp.com/news",
+              this.newsinformation,
+              { observe: "response" }
+            )
+            .subscribe((response) => {
+              if (response.status === 200) {
+                console.log(response.body);
+              }
+            });
+        }
+      });
+  }
 
   Edit() {
     // NewsComponent.editorE
@@ -68,32 +124,32 @@ export class NewsComponent implements OnInit {
   }
   Delete() {}
 
-  add(newsinformation) {
-    // let value = document.getElementById("eventDes").nodeValue;
-    // console.log(value);
-    // $("#mytextarea").tinymce().save();
-    //for image name
+  // add(newsinformation) {
+  //   // let value = document.getElementById("eventDes").nodeValue;
+  //   // console.log(value);
+  //   // $("#mytextarea").tinymce().save();
+  //   //for image name
 
-    let img = newsinformation.news_image;
-    let image_name = img.split(`\\`);
-    newsinformation.news_image = image_name[2];
+  //   let img = newsinformation.news_image;
+  //   let image_name = img.split(`\\`);
+  //   newsinformation.news_image = image_name[2];
 
-    //for getting textarea value
+  //   //for getting textarea value
 
-    var message = $("#mytextarea").val();
-    this.textareaValue = message;
-    console.log("textarea message: " + message);
-    console.log("textarea value: " + this.textareaValue);
-    console.log("typeof-> textarea value: " + typeof this.textareaValue);
-    //setting textarea value in in json array
-    newsinformation.news_Descc = this.textareaValue;
-    console.log(newsinformation);
+  //   var message = $("#mytextarea").val();
+  //   this.textareaValue = message;
+  //   console.log("textarea message: " + message);
+  //   console.log("textarea value: " + this.textareaValue);
+  //   console.log("typeof-> textarea value: " + typeof this.textareaValue);
+  //   //setting textarea value in in json array
+  //   newsinformation.news_Descc = this.textareaValue;
+  //   console.log(newsinformation);
 
-    // this.getTextArea();
-    // console.log("ReactiveForm value: " + this.textareaValue);
-    // console.log("ReactiveForm value: " + this.editorForm.value);
-    // console.log("ReactiveForm value: " + JSON.stringify(this.editorForm.value));
-  }
+  //   // this.getTextArea();
+  //   // console.log("ReactiveForm value: " + this.textareaValue);
+  //   // console.log("ReactiveForm value: " + this.editorForm.value);
+  //   // console.log("ReactiveForm value: " + JSON.stringify(this.editorForm.value));
+  // }
   update() {
     this.editorE.get("editeditor").value;
   }

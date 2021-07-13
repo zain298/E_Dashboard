@@ -387,7 +387,7 @@
                   accept="image/*"
                   class="form-control"
                   name="newsimage"
-                  [(ngModel)]="newsinformation.news_image"
+                  (change)="onFileChanged($event)"
                   maxlength="200"
                 />
               </div>

@@ -1,3 +1,6 @@
+import { ToastrService } from "ngx-toastr";
+import { EventsService } from "./events.service";
+
 import { HttpClient } from "@angular/common/http";
 import { Http } from "@angular/http";
 import { Component, OnInit } from "@angular/core";
@@ -8,7 +11,13 @@ declare var $: any;
   styleUrls: ["./events.component.css"],
 })
 export class EventsComponent implements OnInit {
-  constructor(private httpClient: HttpClient) {}
+  eventsformationAll = [];
+
+  constructor(
+    private httpClient: HttpClient,
+    private eventsService: EventsService,
+    private toastrservice: ToastrService
+  ) {}
   selectedFile: File;
   eventinformation = {
     id: 0,
@@ -22,7 +31,9 @@ export class EventsComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAll();
+  }
   AddNew() {
     this.eventinformation = {
       id: 0,
@@ -36,13 +47,32 @@ export class EventsComponent implements OnInit {
   }
   Edit(row) {
     console.log(row);
-
+    this.eventinformation = {
+      id: row.id,
+      title: row.title,
+      description: row.description,
+      venue: row.venue,
+      imageId: 0,
+      date: row.date,
+    };
     $("#editModal").modal("show");
   }
-  Delete() {}
+  Delete(id) {
+    console.log("Deleted Id" + id);
+    this.httpClient
+      .delete("https://testing-spring-app.herokuapp.com/event/" + id)
+      .subscribe((response) => {
+        if (response == null) {
+          console.log(response);
+          this.toastrservice.success("Success");
+          this.toastrservice.info("Event Deleted");
+          this.getAll();
+        }
+      });
+  }
 
   add(eventinformation) {
-   
+    $("#addModal").modal("hide");
     const uploadImageData = new FormData();
     uploadImageData.append(
       "imageFile",
@@ -58,7 +88,9 @@ export class EventsComponent implements OnInit {
       )
       .subscribe((response) => {
         if (response.status === 200) {
-          this.eventinformation.imageId=Number.parseInt(response.body.toString())
+          this.eventinformation.imageId = Number.parseInt(
+            response.body.toString()
+          );
           this.httpClient
             .post(
               "https://testing-spring-app.herokuapp.com/event",
@@ -67,11 +99,67 @@ export class EventsComponent implements OnInit {
             )
             .subscribe((response) => {
               if (response.status === 200) {
+                this.toastrservice.success("Success");
+                this.toastrservice.info("New Event Added");
+                console.log(response.body);
+                this.getAll();
+              }
+            });
+        }
+      });
+  }
+  update() {
+    $("#addModal").modal("hide");
+    const uploadImageData = new FormData();
+    uploadImageData.append(
+      "imageFile",
+      this.selectedFile,
+      this.selectedFile.name
+    );
+
+    this.httpClient
+      .post(
+        "https://testing-spring-app.herokuapp.com/event/upload",
+        uploadImageData,
+        { observe: "response" }
+      )
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this.eventinformation.imageId = Number.parseInt(
+            response.body.toString()
+          );
+          this.httpClient
+            .put(
+              "https://testing-spring-app.herokuapp.com/event/" +
+                this.eventinformation.id,
+              this.eventinformation,
+              { observe: "response" }
+            )
+            .subscribe((response) => {
+              if (response.status === 200) {
+                this.toastrservice.success("Success");
+                this.toastrservice.info("Event Information updated");
+                this.getAll();
                 console.log(response.body);
               }
             });
         }
       });
   }
-  update() {}
+  //service call
+  getAll() {
+    this.eventsService.getAll().subscribe(
+      (response) => {
+        if (response) {
+          console.log(response);
+          if (response.error && response.status) {
+            this.toastrservice.warning("Message", " " + response.message);
+          } else {
+            this.eventsformationAll = response;
+          }
+        }
+      },
+      (error) => {}
+    );
+  }
 }

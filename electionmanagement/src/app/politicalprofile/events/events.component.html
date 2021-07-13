@@ -44,7 +44,9 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
+                                    <tr
+                                      *ngFor="let events of eventsformationAll"
+                                    >
                                       <td class="text-center">
                                         <input
                                           class="form-control"
@@ -62,7 +64,7 @@
                                               text-overflow: ellipsis;
                                             "
                                           >
-                                            Long March to D-Chowk</span
+                                            {{ events.title }}</span
                                           >
                                         </div>
                                       </td>
@@ -77,15 +79,14 @@
                                               text-overflow: ellipsis;
                                             "
                                           >
-                                            I have enabled the software for you,
-                                            you can try now heeow dsa ds I have
-                                            enabled the software for you, you
-                                            can try now...</span
+                                            {{ events.description }}</span
                                           >
                                         </div>
                                       </td>
                                       <td class="text-center">
-                                        <span class="">12-05-2021</span>
+                                        <span class="">{{
+                                          events.date | date
+                                        }}</span>
                                       </td>
                                       <td class="text-center">
                                         <span
@@ -97,7 +98,7 @@
                                             text-overflow: ellipsis;
                                           "
                                         >
-                                          University Of gujrat</span
+                                          {{ events.venue }}</span
                                         >
                                       </td>
                                       <!-- <td class="nowrap">
@@ -107,155 +108,19 @@
                                         ><span>Active</span>
                                       </td> -->
                                       <td class="row-actions">
-                                        <a (click)="Edit()" class="on-hover"
+                                        <a
+                                          (click)="Edit(events)"
+                                          class="on-hover"
                                           ><i
                                             class="fa fa-pencil-square-o"
                                           ></i></a
-                                        ><a class="danger" (click)="Delete()"
-                                          ><i class="os-icon os-icon-ui-15"></i
-                                        ></a>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td class="text-center">
-                                        <input
-                                          class="form-control"
-                                          type="checkbox"
-                                        />
-                                      </td>
-                                      <td>
-                                        <div class="user-with-avatar">
-                                          <span
-                                            style="
-                                              max-width: 30ch;
-                                              display: inline-block;
-                                              white-space: nowrap;
-                                              overflow: hidden;
-                                              text-overflow: ellipsis;
-                                            "
-                                          >
-                                            Meeting with Prime Minister</span
-                                          >
-                                        </div>
-                                      </td>
-                                      <td>
-                                        <div class="smaller lighter">
-                                          <span
-                                            style="
-                                              max-width: 50ch;
-                                              display: inline-block;
-                                              white-space: nowrap;
-                                              overflow: hidden;
-                                              text-overflow: ellipsis;
-                                            "
-                                          >
-                                            I have enabled the software for you,
-                                            you can try now heeow dsa ds I have
-                                            enabled the software for you, you
-                                            can try now...</span
-                                          >
-                                        </div>
-                                      </td>
-                                      <td class="text-center">
-                                        <span class="">12-05-2021</span>
-                                      </td>
-                                      <td class="text-center">
-                                        <span
-                                          style="
-                                            max-width: 30ch;
-                                            display: inline-block;
-                                            white-space: nowrap;
-                                            overflow: hidden;
-                                            text-overflow: ellipsis;
-                                          "
-                                        >
-                                          University Of gujrat</span
-                                        >
-                                      </td>
-                                      <!-- <td class="nowrap">
-                                        <span
-                                          class="status-pill smaller green"
-                                        ></span
-                                        ><span>Active</span>
-                                      </td> -->
-                                      <td class="row-actions">
-                                        <a (click)="Edit()" class="on-hover"
+                                        ><a
+                                          class="danger on-hover"
+                                          (click)="Delete(events.id)"
                                           ><i
-                                            class="fa fa-pencil-square-o"
-                                          ></i></a
-                                        ><a class="danger" (click)="Delete()"
-                                          ><i class="os-icon os-icon-ui-15"></i
-                                        ></a>
-                                      </td>
-                                    </tr>
-                                    <tr>
-                                      <td class="text-center">
-                                        <input
-                                          class="form-control"
-                                          type="checkbox"
-                                        />
-                                      </td>
-                                      <td>
-                                        <div class="user-with-avatar">
-                                          <span
-                                            style="
-                                              max-width: 30ch;
-                                              display: inline-block;
-                                              white-space: nowrap;
-                                              overflow: hidden;
-                                              text-overflow: ellipsis;
-                                            "
-                                            >Vote Casting
-                                          </span>
-                                        </div>
-                                      </td>
-                                      <td>
-                                        <div class="smaller lighter">
-                                          <span
-                                            style="
-                                              max-width: 50ch;
-                                              display: inline-block;
-                                              white-space: nowrap;
-                                              overflow: hidden;
-                                              text-overflow: ellipsis;
-                                            "
-                                          >
-                                            I have enabled the software for you,
-                                            you can try now heeow dsa ds I have
-                                            enabled the software for you, you
-                                            can try now...</span
-                                          >
-                                        </div>
-                                      </td>
-                                      <td class="text-center">
-                                        <span class="">12-05-2021</span>
-                                      </td>
-                                      <td class="text-center">
-                                        <span
-                                          style="
-                                            max-width: 30ch;
-                                            display: inline-block;
-                                            white-space: nowrap;
-                                            overflow: hidden;
-                                            text-overflow: ellipsis;
-                                          "
-                                        >
-                                          University Of gujrat</span
-                                        >
-                                      </td>
-                                      <!-- <td class="nowrap">
-                                        <span
-                                          class="status-pill smaller green"
-                                        ></span
-                                        ><span>Active</span>
-                                      </td> -->
-                                      <td class="row-actions">
-                                        <a (click)="Edit()" class="on-hover"
-                                          ><i
-                                            class="fa fa-pencil-square-o"
-                                          ></i></a
-                                        ><a class="danger" (click)="Delete()"
-                                          ><i class="os-icon os-icon-ui-15"></i
+                                            class="os-icon os-icon-ui-15"
+                                            style="color: red"
+                                          ></i
                                         ></a>
                                       </td>
                                     </tr>
@@ -464,7 +329,7 @@
               </div>
             </div>
           </div>
-          <!-- <div class="row">
+          <div class="row">
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label"> Event Image </label>
@@ -473,12 +338,12 @@
                   class="form-control"
                   name="image"
                   accept="image/*"
-                  [(ngModel)]="eventinformation.imageId"
+                  (change)="onFileChanged($event)"
                   maxlength="200"
                 />
               </div>
             </div>
-          </div> -->
+          </div>
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
