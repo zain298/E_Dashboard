@@ -41,7 +41,7 @@ export class SocialaccountsComponent implements OnInit {
       .post(url, {
         message: text,
         access_token:
-          "EAAMoAIIgkYUBAJdBjE5zRGtzbR0h4EzxK22IZBn1NQzEML72pPizJhjll9yyBDA4blmVMQRxbkK1bK4ZC54sT115ZBXk8adeU2Mm7tB9lKoIz9eEQswtug3qJBMT7HCZC8tq5XCE01YN2Uc5ZCl41dBGC08TNLB66sZCIopZB8NOJPbzUMgCAXG",
+          "EAAMoAIIgkYUBADmC2v6OPPCMYc98r6FgSoRcqomZCyZBqfSUthyonBwntYVMkLZCUFJVTcP2hyZC6zZCbgQZBWy2gNNol2CzF6QZAtmwscP1hagPfcuuN3vdeSsmH6MOFWtU7Pltq9pp2ZAwCRuQxSCMdRQlUNPr3Em00NEZConW1JGPDvfqMq9gT",
       })
       .toPromise()
       .then((data: any) => {
@@ -57,7 +57,7 @@ export class SocialaccountsComponent implements OnInit {
         message: text,
         link: linkk,
         access_token:
-          "EAAMoAIIgkYUBAJdBjE5zRGtzbR0h4EzxK22IZBn1NQzEML72pPizJhjll9yyBDA4blmVMQRxbkK1bK4ZC54sT115ZBXk8adeU2Mm7tB9lKoIz9eEQswtug3qJBMT7HCZC8tq5XCE01YN2Uc5ZCl41dBGC08TNLB66sZCIopZB8NOJPbzUMgCAXG",
+          "EAAMoAIIgkYUBADmC2v6OPPCMYc98r6FgSoRcqomZCyZBqfSUthyonBwntYVMkLZCUFJVTcP2hyZC6zZCbgQZBWy2gNNol2CzF6QZAtmwscP1hagPfcuuN3vdeSsmH6MOFWtU7Pltq9pp2ZAwCRuQxSCMdRQlUNPr3Em00NEZConW1JGPDvfqMq9gT",
       })
       .toPromise()
       .then((data: any) => {
@@ -70,7 +70,7 @@ export class SocialaccountsComponent implements OnInit {
       .post(url, {
         url: imgurl,
         access_token:
-          "EAAMoAIIgkYUBAJdBjE5zRGtzbR0h4EzxK22IZBn1NQzEML72pPizJhjll9yyBDA4blmVMQRxbkK1bK4ZC54sT115ZBXk8adeU2Mm7tB9lKoIz9eEQswtug3qJBMT7HCZC8tq5XCE01YN2Uc5ZCl41dBGC08TNLB66sZCIopZB8NOJPbzUMgCAXG",
+          "EAAMoAIIgkYUBADmC2v6OPPCMYc98r6FgSoRcqomZCyZBqfSUthyonBwntYVMkLZCUFJVTcP2hyZC6zZCbgQZBWy2gNNol2CzF6QZAtmwscP1hagPfcuuN3vdeSsmH6MOFWtU7Pltq9pp2ZAwCRuQxSCMdRQlUNPr3Em00NEZConW1JGPDvfqMq9gT",
       })
       .toPromise()
       .then((data: any) => {

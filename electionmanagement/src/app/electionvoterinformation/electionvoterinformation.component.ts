@@ -17,7 +17,7 @@ export class ElectionvoterinformationComponent implements OnInit {
   ElectionvoterinformationAll = [];
   Electionvoterinformation = {
     voter_ID: 0,
-    serial_NO:1,
+    serial_NO: 1,
     name: "",
     father_NAME: "",
     cnic: "",
@@ -55,7 +55,7 @@ export class ElectionvoterinformationComponent implements OnInit {
     this.Electionvoterinformation = {
       voter_ID: 0,
       name: "",
-      serial_NO:1,
+      serial_NO: 1,
       iscasted: "",
       father_NAME: "",
       cnic: "",
@@ -98,7 +98,7 @@ export class ElectionvoterinformationComponent implements OnInit {
     this.Electionvoterinformation = {
       voter_ID: row.data.voter_ID,
       iscasted: row.data.iscasted,
-      serial_NO:row.data.serial_NO,
+      serial_NO: row.data.serial_NO,
       name: row.data.name,
       blockcode: row.data.blockcode,
       father_NAME: row.data.father_NAME,
@@ -141,6 +141,11 @@ export class ElectionvoterinformationComponent implements OnInit {
   }
 
   add(Electionvoterinformation) {
+    if (Electionvoterinformation.isactive == true) {
+      Electionvoterinformation.isactive = "Y";
+    } else {
+      Electionvoterinformation.isactive = "N";
+    }
     if (Electionvoterinformation.electiontype_ID != null) {
       Electionvoterinformation.electiontype_ID =
         Electionvoterinformation.electiontype_ID.id;
