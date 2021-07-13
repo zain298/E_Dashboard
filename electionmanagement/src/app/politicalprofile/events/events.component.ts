@@ -11,13 +11,12 @@ export class EventsComponent implements OnInit {
   constructor(private httpClient: HttpClient) {}
   selectedFile: File;
   eventinformation = {
-    event_ID: 0,
-    event_DATE: "",
-    event_Desc: "",
-    event_Venue: "",
-    event_Title: "",
-    event_image: "",
-    isactive: true,
+    id: 0,
+    title: "",
+    description: "",
+    venue: "",
+    imageId: 0,
+    date: "",
   };
   public onFileChanged(event) {
     this.selectedFile = event.target.files[0];
@@ -26,13 +25,12 @@ export class EventsComponent implements OnInit {
   ngOnInit() {}
   AddNew() {
     this.eventinformation = {
-      event_ID: 0,
-      event_DATE: "",
-      event_Desc: "",
-      event_Venue: "",
-      event_Title: "",
-      event_image: "",
-      isactive: true,
+      id: 0,
+      title: "",
+      description: "",
+      venue: "",
+      imageId: 0,
+      date: "",
     };
     $("#addModal").modal("show");
   }
@@ -43,9 +41,8 @@ export class EventsComponent implements OnInit {
   }
   Delete() {}
 
-  add() {
-    console.log(this.selectedFile);
-
+  add(eventinformation) {
+   
     const uploadImageData = new FormData();
     uploadImageData.append(
       "imageFile",
@@ -54,16 +51,25 @@ export class EventsComponent implements OnInit {
     );
 
     this.httpClient
-      .post("http://127.0.0.1:8080/imgage/upload", uploadImageData, {
-        observe: "response",
-      })
+      .post(
+        "https://testing-spring-app.herokuapp.com/image/upload",
+        uploadImageData,
+        { observe: "response" }
+      )
       .subscribe((response) => {
         if (response.status === 200) {
-          let message = "Image upload Successfully";
-          console.log(message);
-        } else {
-          let message = "Image not uploadded";
-          console.log(message);
+          this.eventinformation.imageId=Number.parseInt(response.body.toString())
+          this.httpClient
+            .post(
+              "https://testing-spring-app.herokuapp.com/image",
+              this.eventinformation,
+              { observe: "response" }
+            )
+            .subscribe((response) => {
+              if (response.status === 200) {
+                console.log(response.body);
+              }
+            });
         }
       });
   }
