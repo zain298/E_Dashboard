@@ -43,7 +43,7 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
+                                    <tr *ngFor="let news of newsformationAll">
                                       <td class="text-center">
                                         <input
                                           class="form-control"
@@ -52,7 +52,7 @@
                                       </td>
                                       <td>
                                         <div class="user-with-avatar">
-                                          <span>Mike Bishop</span>
+                                          <span>{{ news.author }}</span>
                                         </div>
                                       </td>
                                       <td>
@@ -65,8 +65,7 @@
                                               overflow: hidden;
                                               text-overflow: ellipsis;
                                             "
-                                            >Meeting with PM in Islmabad gone
-                                            right
+                                            >{{ news.title }}
                                           </span>
                                         </div>
                                       </td>
@@ -81,28 +80,34 @@
                                               text-overflow: ellipsis;
                                             "
                                           >
-                                            I have enabled the software for you,
-                                            you can try now heeow dsa ds I have
-                                            enabled the software for you, you
-                                            can try now...</span
-                                          >
+                                            <div
+                                              [innerHTML]="news.description"
+                                            ></div>
+                                          </span>
                                         </div>
                                       </td>
                                       <td class="text-center">
-                                        <span class="">12-05-2021</span>
+                                        <span class="">{{
+                                          news.date | date
+                                        }}</span>
                                       </td>
 
                                       <td class="row-actions">
-                                        <a (click)="Edit()" class="on-hover"
+                                        <a (click)="Edit(news)" class="on-hover"
                                           ><i
                                             class="fa fa-pencil-square-o"
                                           ></i></a
-                                        ><a class="danger" (click)="Delete()"
-                                          ><i class="os-icon os-icon-ui-15"></i
+                                        ><a
+                                          class="danger on-hover"
+                                          (click)="Delete(news.id)"
+                                          ><i
+                                            class="os-icon os-icon-ui-15"
+                                            style="color: red"
+                                          ></i
                                         ></a>
                                       </td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                       <td class="text-center">
                                         <input
                                           class="form-control"
@@ -286,7 +291,7 @@
                                           ><i class="os-icon os-icon-ui-15"></i
                                         ></a>
                                       </td>
-                                    </tr>
+                                    </tr> -->
                                   </tbody>
                                 </table>
                               </div>
@@ -344,7 +349,7 @@
                   type="date"
                   class="form-control"
                   name="newsdate"
-                  [(ngModel)]="newsinformation.news_DATE"
+                  [(ngModel)]="newsinformation.date"
                   maxlength="20"
                 />
               </div>
@@ -356,7 +361,7 @@
                   type="text"
                   class="form-control"
                   name="autherName"
-                  [(ngModel)]="newsinformation.news_Auther"
+                  [(ngModel)]="newsinformation.author"
                   maxlength="20"
                 />
               </div>
@@ -371,7 +376,7 @@
                   type="text"
                   class="form-control"
                   name="NewsTitle"
-                  [(ngModel)]="newsinformation.news_Title"
+                  [(ngModel)]="newsinformation.title"
                   maxlength="50"
                 />
               </div>
@@ -393,6 +398,7 @@
               </div>
             </div>
           </div>
+
           <div class="row">
             <div class="col-md-12">
               <form [formGroup]="editorForm" (ngSubmit)="OnSave()">
@@ -479,7 +485,7 @@
                   type="date"
                   class="form-control"
                   name="newsDate"
-                  [(ngModel)]="newsinformation.news_DATE"
+                  [(ngModel)]="newsinformation.date"
                   maxlength="20"
                 />
               </div>
@@ -491,7 +497,7 @@
                   type="text"
                   class="form-control"
                   name="autherName"
-                  [(ngModel)]="newsinformation.news_Auther"
+                  [(ngModel)]="newsinformation.author"
                   maxlength="20"
                 />
               </div>
@@ -506,7 +512,7 @@
                   type="text"
                   class="form-control"
                   name="newsTitle"
-                  [(ngModel)]="newsinformation.news_Title"
+                  [(ngModel)]="newsinformation.title"
                   maxlength="50"
                 />
               </div>
@@ -521,7 +527,7 @@
                   class="form-control"
                   name="image"
                   accept="image/*"
-                  [(ngModel)]="newsinformation.news_image"
+                  (change)="onFileChanged($event)"
                   maxlength="200"
                 />
               </div>

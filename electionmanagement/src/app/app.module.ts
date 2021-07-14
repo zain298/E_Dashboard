@@ -41,6 +41,7 @@ import {
   DxCheckBoxModule,
   DxSelectBoxModule,
   DxDropDownButtonModule,
+  DxHtmlEditorModule,
 } from "devextreme-angular";
 import CustomStore from "devextreme/data/custom_store";
 
@@ -87,7 +88,7 @@ import { DistrictinformationComponent } from "./districtinformation/districtinfo
 import { ElectionvoterinformationComponent } from "./electionvoterinformation/electionvoterinformation.component";
 import { EventsComponent } from "./politicalprofile/events/events.component";
 import { NewsComponent } from "./politicalprofile/news/news.component";
-import { SocialaccountsComponent } from './socialaccounts/socialaccounts.component';
+import { SocialaccountsComponent } from "./socialaccounts/socialaccounts.component";
 
 @NgModule({
   declarations: [
@@ -157,6 +158,7 @@ import { SocialaccountsComponent } from './socialaccounts/socialaccounts.compone
     DxDropDownButtonModule,
     DxGalleryModule,
     ReactiveFormsModule,
+    DxHtmlEditorModule,
   ],
   providers: [
     {

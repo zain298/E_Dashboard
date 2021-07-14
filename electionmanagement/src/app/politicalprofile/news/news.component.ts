@@ -1,3 +1,4 @@
+import { DatePipe } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
@@ -12,22 +13,23 @@ declare var $: any;
 })
 export class NewsComponent implements OnInit {
   public textareaValue: string;
+  newsformationAll = [];
   selectedFile: File;
   newsinformation = {
-    news_ID: 0,
-    news_DATE: "",
+    id: 0,
+    title: "",
     imageId: 0,
-    news_image: "",
-    news_Descc: "",
-    news_Auther: "",
-    news_Title: "",
-    isactive: true,
+    description: "",
+    date: "",
+    author: "",
   };
+
   // static editorE: FormGroup;
   constructor(
     private httpClient: HttpClient,
-    private eventsService: NewsService,
-    private toastrservice: ToastrService
+    private newsService: NewsService,
+    private toastrservice: ToastrService,
+    private datePipe: DatePipe
   ) {
     // this.editorE = new FormGroup({
     //   editeditor: new FormControl("boi"),
@@ -43,7 +45,9 @@ export class NewsComponent implements OnInit {
   });
 
   // var text=Document.getElementById("mytextarea");
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAll();
+  }
   // ngOnChanges(editorVal: any) {
   //   this.editorForm = new FormGroup({
   //     editor: new FormControl(editorVal),
@@ -58,12 +62,40 @@ export class NewsComponent implements OnInit {
   //   console.log("bhaii yeh kiya: " + event.target.files[0].name);
   // }
   AddNew() {
+    this.newsinformation = {
+      id: 0,
+      title: "",
+      imageId: 0,
+      description: "",
+      date: "",
+      author: "",
+    };
+    $("#addModal").modal("show");
     // var editorVal = "";
     // this.ngOnChanges(editorVal);
 
     // $("#mytextarea").val("<p>editor boi</p>");
-    $("#addModal").modal("show");
+
     // $("#mytextarea").tinymce().save();
+  }
+  Edit(row) {
+    // NewsComponent.editorE
+    let date = this.datePipe.transform(new Date(row.date), "yyyy-MM-dd");
+
+    this.editorE = new FormGroup({ editeditor: new FormControl("zain") });
+    this.newsinformation = {
+      id: row.id,
+      title: row.title,
+      imageId: 0,
+      description: "",
+      date: date,
+      author: row.author,
+    };
+    $("#editModal").modal("show");
+
+    // console.log(row);
+    // var valueee = { val: "d" };
+    // this.editorE.patchValue({ editeditor: "boi how" });
   }
   public onFileChanged(event) {
     this.selectedFile = event.target.files[0];
@@ -73,11 +105,11 @@ export class NewsComponent implements OnInit {
 
     var message = $("#mytextarea").val();
     this.textareaValue = message;
-    console.log("textarea message: " + message);
-    console.log("textarea value: " + this.textareaValue);
-    console.log("typeof-> textarea value: " + typeof this.textareaValue);
+    // console.log("textarea message: " + message);
+    // console.log("textarea value: " + this.textareaValue);
+    // console.log("typeof-> textarea value: " + typeof this.textareaValue);
     //setting textarea value in in json array
-    newsinformation.news_Descc = this.textareaValue;
+    newsinformation.description = this.textareaValue;
     console.log(newsinformation);
 
     const uploadImageData = new FormData();
@@ -107,22 +139,29 @@ export class NewsComponent implements OnInit {
             .subscribe((response) => {
               if (response.status === 200) {
                 console.log(response.body);
+                this.toastrservice.success("Success");
+                this.toastrservice.info("News Added");
+                $("#addModal").modal("hide");
+                this.getAll();
               }
             });
         }
       });
   }
 
-  Edit() {
-    // NewsComponent.editorE
-    this.editorE = new FormGroup({ editeditor: new FormControl("zain") });
-    $("#editModal").modal("show");
-
-    // console.log(row);
-    // var valueee = { val: "d" };
-    // this.editorE.patchValue({ editeditor: "boi how" });
+  Delete(id) {
+    console.log("Deleted Id: " + id);
+    this.httpClient
+      .delete("https://testing-spring-app.herokuapp.com/news/" + id)
+      .subscribe((response) => {
+        if (response == null) {
+          console.log(response);
+          this.toastrservice.success("Success");
+          this.toastrservice.info("News Deleted");
+          this.getAll();
+        }
+      });
   }
-  Delete() {}
 
   // add(newsinformation) {
   //   // let value = document.getElementById("eventDes").nodeValue;
@@ -150,12 +189,74 @@ export class NewsComponent implements OnInit {
   //   // console.log("ReactiveForm value: " + this.editorForm.value);
   //   // console.log("ReactiveForm value: " + JSON.stringify(this.editorForm.value));
   // }
-  update() {
-    this.editorE.get("editeditor").value;
+  // update() {
+  //   this.editorE.get("editeditor").value;
+  // }
+  update(newsinformation) {
+    var message = $("#myedittextarea").val();
+    this.textareaValue = message;
+    newsinformation.description = this.textareaValue;
+    console.log(newsinformation);
+
+    const uploadImageData = new FormData();
+    uploadImageData.append(
+      "imageFile",
+      this.selectedFile,
+      this.selectedFile.name
+    );
+
+    this.httpClient
+      .post(
+        "https://testing-spring-app.herokuapp.com/news/upload",
+        uploadImageData,
+        { observe: "response" }
+      )
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this.newsinformation.imageId = Number.parseInt(
+            response.body.toString()
+          );
+          this.httpClient
+            .put(
+              "https://testing-spring-app.herokuapp.com/news/" +
+                // here id missing
+                this.newsinformation.id,
+              this.newsinformation,
+              { observe: "response" }
+            )
+            .subscribe((response) => {
+              if (response.status === 200) {
+                this.toastrservice.success("Success");
+                this.toastrservice.info("News Information updated");
+                $("#editModal").modal("hide");
+                this.getAll();
+                console.log(response.body);
+              }
+            });
+        }
+      });
   }
   // getTextArea() {
   //   let value = document.getElementById("mytextarea"); // Gets value of 'inputMethod' textarea
   //   console.log(value); // Prints value to console
   //   return value;
   // }
+
+  // api Requests
+  getAll() {
+    this.newsService.getAll().subscribe(
+      (response) => {
+        if (response) {
+          console.log(response);
+          if (response.error && response.status) {
+            this.toastrservice.warning("Message", " " + response.message);
+          } else {
+            this.newsformationAll = response;
+            console.log("newsformationAll[]= " + this.newsformationAll);
+          }
+        }
+      },
+      (error) => {}
+    );
+  }
 }

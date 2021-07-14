@@ -4,6 +4,8 @@ import { EventsService } from "./events.service";
 import { HttpClient } from "@angular/common/http";
 import { Http } from "@angular/http";
 import { Component, OnInit } from "@angular/core";
+import { DatePipe } from "@angular/common";
+import { stringify } from "@angular/core/src/util";
 declare var $: any;
 @Component({
   selector: "app-events",
@@ -16,7 +18,8 @@ export class EventsComponent implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private eventsService: EventsService,
-    private toastrservice: ToastrService
+    private toastrservice: ToastrService,
+    private datePipe: DatePipe
   ) {}
   selectedFile: File;
   eventinformation = {
@@ -34,6 +37,7 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     this.getAll();
   }
+
   AddNew() {
     this.eventinformation = {
       id: 0,
@@ -47,13 +51,15 @@ export class EventsComponent implements OnInit {
   }
   Edit(row) {
     console.log(row);
+    let date = this.datePipe.transform(new Date(row.date), "yyyy-MM-dd");
+
     this.eventinformation = {
       id: row.id,
       title: row.title,
       description: row.description,
       venue: row.venue,
       imageId: 0,
-      date: row.date,
+      date: date,
     };
     $("#editModal").modal("show");
   }
