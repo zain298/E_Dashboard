@@ -121,7 +121,7 @@ export class NewsComponent implements OnInit {
 
     this.httpClient
       .post(
-        "https://testing-spring-app.herokuapp.com/news/upload",
+        "https://testing-spring-app.herokuapp.com/image/upload",
         uploadImageData,
         { observe: "response" }
       )
@@ -207,7 +207,7 @@ export class NewsComponent implements OnInit {
 
     this.httpClient
       .post(
-        "https://testing-spring-app.herokuapp.com/news/upload",
+        "https://testing-spring-app.herokuapp.com/image/upload",
         uploadImageData,
         { observe: "response" }
       )
