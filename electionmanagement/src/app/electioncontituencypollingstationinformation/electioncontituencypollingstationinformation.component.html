@@ -213,7 +213,9 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Polling Station </label>
+                <label class="control-label"
+                  >Polling Station<span style="color: red">*</span>
+                </label>
                 <input
                   type="text"
                   class="form-control"
@@ -221,7 +223,8 @@
                   [(ngModel)]="
                     electioncontituencypollingstationinformation.description
                   "
-                  maxlength="50"
+                  maxlength="1000"
+                  required
                 />
               </div>
             </div>
@@ -235,14 +238,14 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="surname"
+                  name="pollinstation"
                   [(ngModel)]="
                     electioncontituencypollingstationinformation.POLLINGSTATION_CODE
                   "
                   maxlength="50"
                   [ngClass]="{ 'is-invalid': code.invalid }"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
+                  pattern="[0-9\s]+"
                   required
                 />
               </div>
@@ -253,12 +256,17 @@
                   >Contituency<span style="color: red">*</span></label
                 >
                 <ng-select
-                  [(ngModel)]="electioncontituencypollingstationinformation.Contituency"
-                  name="area_type"
+                required
+                  [(ngModel)]="
+                    electioncontituencypollingstationinformation.Contituency
+                  "
+                  name="contituency"
                   ng-init="electionblockcodeinformation.description"
                 >
                   <ng-option
-                    *ngFor="let contituency of electioncontituencyinformationAll"
+                    *ngFor="
+                      let contituency of electioncontituencyinformationAll
+                    "
                     [value]="contituency.contituency_CODE"
                     >{{ contituency.contituency_CODE }}</ng-option
                   >
@@ -316,15 +324,18 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Polling Station Name</label>
+                <label class="control-label"
+                  >Polling Station Name<span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
-                  name="title"
+                  name="pollingstation"
                   [(ngModel)]="
                     electioncontituencypollingstationinformation.description
                   "
-                  maxlength="50"
+                  maxlength="1000"
+                  required
                 />
               </div>
             </div>
@@ -338,30 +349,36 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="surname"
+                  name="pollingcode"
                   [(ngModel)]="
                     electioncontituencypollingstationinformation.POLLINGSTATION_CODE
                   "
                   maxlength="50"
                   [ngClass]="{ 'is-invalid': code.invalid }"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
+                  pattern="[0-9\s]+"
                   required
                 />
               </div>
             </div>
-           <div class="col-md-6">
+            <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label"
                   >Contituency<span style="color: red">*</span></label
                 >
                 <ng-select
-                  [(ngModel)]="electioncontituencypollingstationinformation.Contituency"
-                  name="area_type"
+                required
+                  [(ngModel)]="
+                    electioncontituencypollingstationinformation.Contituency
+                  "
+                  
+                  name="contituency"
                   ng-init="electionblockcodeinformation.description"
                 >
                   <ng-option
-                    *ngFor="let contituency of electioncontituencyinformationAll"
+                    *ngFor="
+                      let contituency of electioncontituencyinformationAll
+                    "
                     [value]="contituency.contituency_CODE"
                     >{{ contituency.contituency_CODE }}</ng-option
                   >

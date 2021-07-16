@@ -18,15 +18,15 @@ declare var $: any;
 export class PoliticalpartycandidateinformationComponent implements OnInit {
   entitylist = [];
   politicalpartycandidateinformationAll = [];
-  personinformationAll=[];
-  contituencyinformationAll=[];
-  politicalpartyinformationAll=[];
+  personinformationAll = [];
+  contituencyinformationAll = [];
+  politicalpartyinformationAll = [];
   electiontypeActive = [];
   politicalpartycandidateinformation = {
     candidate_ID: 0,
     // forenames: "",
     // surname: "",
-    person_name:"",
+    person_name: "",
     // description: "", //province
     // electiontype_ID: {},
     politicalparty_NAME: "",
@@ -75,7 +75,7 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
   AddNew() {
     this.politicalpartycandidateinformation = {
       candidate_ID: 0,
-      person_name:"",
+      person_name: "",
       politicalparty_NAME: "",
       contituency_CODE: "",
       contituency_ID: 0,
@@ -146,7 +146,8 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
   Edit(row) {
     this.politicalpartycandidateinformation = {
       candidate_ID: row.data.candidate_ID,
-      person_name:row.data.person_ID.forenames+" "+row.data.person_ID.surname,
+      person_name:
+        row.data.person_ID.forenames + " " + row.data.person_ID.surname,
       politicalparty_NAME: row.data.politicalparty_ID.politicalparty_NAME,
       contituency_CODE: row.data.contituency_ID.contituency_CODE,
       contituency_ID: row.data.contituency_ID.contituency_ID,
@@ -186,9 +187,7 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
   }
 
   add(politicalpartycandidateinformation) {
-    if (
-      politicalpartycandidateinformation.contituency_CODE == ""
-    ) {
+    if (politicalpartycandidateinformation.contituency_CODE == "") {
       politicalpartycandidateinformation.contituency_ID =
         this.contituencyinformationAll[0].contituency_ID;
     } else {
@@ -198,29 +197,26 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
           this.contituencyinformationAll[contituency].contituency_CODE
         ) {
           politicalpartycandidateinformation.contituency_ID =
-          this.contituencyinformationAll[contituency].contituency_ID;
+            this.contituencyinformationAll[contituency].contituency_ID;
         }
       }
     }
-    if (
-      politicalpartycandidateinformation.person_name == ""
-    ) {
+    if (politicalpartycandidateinformation.person_name == "") {
       politicalpartycandidateinformation.person_ID =
         this.personinformationAll[0].person_ID;
     } else {
       for (let person in this.personinformationAll) {
         if (
           politicalpartycandidateinformation.person_name ==
-          this.personinformationAll[person].forenames+this.personinformationAll[person].surname
+          this.personinformationAll[person].forenames +
+            this.personinformationAll[person].surname
         ) {
           politicalpartycandidateinformation.person_ID =
-          this.personinformationAll[person].person_ID;
+            this.personinformationAll[person].person_ID;
         }
       }
     }
-    if (
-      politicalpartycandidateinformation.politicalparty_NAME == ""
-    ) {
+    if (politicalpartycandidateinformation.politicalparty_NAME == "") {
       politicalpartycandidateinformation.politicalparty_ID =
         this.politicalpartyinformationAll[0].politicalparty_ID;
     } else {
@@ -230,8 +226,7 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
           this.politicalpartyinformationAll[party].politicalparty_NAME
         ) {
           politicalpartycandidateinformation.politicalparty_ID =
-          this.politicalpartyinformationAll[party].politicalparty_ID;
-  
+            this.politicalpartyinformationAll[party].politicalparty_ID;
         }
       }
     }
@@ -245,10 +240,8 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.candidate_ID) {
-              this.toastrservice.success(
-                "Success",
-                "New Candidate Information Added"
-              );
+              this.toastrservice.success("Success");
+              this.toastrservice.info("New Candidate Information Added");
               this.politicalpartycandidateinformation = response;
               this.getAll();
 
@@ -272,10 +265,8 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.candidate_ID) {
-              this.toastrservice.success(
-                "Success",
-                "Candidate Information Deleted"
-              );
+              this.toastrservice.success("Success");
+              this.toastrservice.info("Candidate Information Deleted");
               this.politicalpartycandidateinformation = response;
               this.getAll();
               $("#editModal").modal("hide");
@@ -290,9 +281,7 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
       );
   }
   update(politicalpartycandidateinformation) {
-    if (
-      politicalpartycandidateinformation.contituency_CODE == ""
-    ) {
+    if (politicalpartycandidateinformation.contituency_CODE == "") {
       politicalpartycandidateinformation.contituency_ID =
         this.contituencyinformationAll[0].contituency_ID;
     } else {
@@ -302,31 +291,28 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
           this.contituencyinformationAll[contituency].contituency_CODE
         ) {
           politicalpartycandidateinformation.contituency_ID =
-          this.contituencyinformationAll[contituency].contituency_ID;
+            this.contituencyinformationAll[contituency].contituency_ID;
         }
       }
     }
-    let personName=politicalpartycandidateinformation.person_name.split(" ");
-    let completeName=personName[0]+personName[1];
-    if (
-      politicalpartycandidateinformation.person_name == ""
-    ) {
+    let personName = politicalpartycandidateinformation.person_name.split(" ");
+    let completeName = personName[0] + personName[1];
+    if (politicalpartycandidateinformation.person_name == "") {
       politicalpartycandidateinformation.person_ID =
         this.personinformationAll[0].person_ID;
     } else {
       for (let person in this.personinformationAll) {
         if (
-         completeName ==
-          this.personinformationAll[person].forenames+this.personinformationAll[person].surname
+          completeName ==
+          this.personinformationAll[person].forenames +
+            this.personinformationAll[person].surname
         ) {
           politicalpartycandidateinformation.person_ID =
-          this.personinformationAll[person].person_ID;
+            this.personinformationAll[person].person_ID;
         }
       }
     }
-    if (
-      politicalpartycandidateinformation.politicalparty_NAME == ""
-    ) {
+    if (politicalpartycandidateinformation.politicalparty_NAME == "") {
       politicalpartycandidateinformation.politicalparty_ID =
         this.politicalpartyinformationAll[0].politicalparty_ID;
     } else {
@@ -336,8 +322,7 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
           this.politicalpartyinformationAll[party].politicalparty_NAME
         ) {
           politicalpartycandidateinformation.politicalparty_ID =
-          this.politicalpartyinformationAll[party].politicalparty_ID;
-  
+            this.politicalpartyinformationAll[party].politicalparty_ID;
         }
       }
     }
@@ -363,10 +348,8 @@ export class PoliticalpartycandidateinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.candidate_ID) {
-              this.toastrservice.success(
-                "Success",
-                "Candidate Information Updated"
-              );
+              this.toastrservice.success("Success");
+              this.toastrservice.info("Candidate Information Updated");
               this.politicalpartycandidateinformation = response;
               this.getAll();
               $("#editModal").modal("hide");

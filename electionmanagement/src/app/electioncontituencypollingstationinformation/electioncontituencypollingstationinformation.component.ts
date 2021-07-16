@@ -23,7 +23,7 @@ export class ElectioncontituencypollingstationinformationComponent
     contituency_ID: 0,
     description: "", //pollingStationName
     pollingstation_CODE: "",
-    POLLINGSTATION_CODE:"",
+    POLLINGSTATION_CODE: "",
     Contituency: "",
     district_NAME: "",
     //description: '',//province
@@ -59,7 +59,7 @@ export class ElectioncontituencypollingstationinformationComponent
   AddNew() {
     this.electioncontituencypollingstationinformation = {
       pollingstation_ID: 0,
-      POLLINGSTATION_CODE:"",
+      POLLINGSTATION_CODE: "",
       description: "",
       pollingstation_CODE: "",
       Contituency: "",
@@ -100,7 +100,7 @@ export class ElectioncontituencypollingstationinformationComponent
       description: row.data.description,
       contituency_ID: row.data.contituency_ID.contituency_ID,
       pollingstation_CODE: row.data.pollingstation_CODE,
-      POLLINGSTATION_CODE:row.data.pollingstation_CODE,
+      POLLINGSTATION_CODE: row.data.pollingstation_CODE,
       Contituency: row.data.contituency_ID.contituency_CODE,
       district_NAME: row.data.district_NAME,
       // description: row.data.description,
@@ -126,7 +126,7 @@ export class ElectioncontituencypollingstationinformationComponent
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.pollingstation_ID) {
               this.toastrservice.success("Success");
-              this.toastrservice.info("Record Deleted");
+              this.toastrservice.info("Polling Station Record Deleted");
               this.electioncontituencypollingstationinformation = response;
               this.getAll();
               $("#editModal").modal("hide");
@@ -160,7 +160,8 @@ export class ElectioncontituencypollingstationinformationComponent
 
   add(electioncontituencypollingstationinformation) {
     if (electioncontituencypollingstationinformation.Contituency == "") {
-      electioncontituencypollingstationinformation.Contituency = this.electioncontituencyinformationAll[0].contituency_ID;
+      electioncontituencypollingstationinformation.Contituency =
+        this.electioncontituencyinformationAll[0].contituency_ID;
     } else {
       for (let contituency in this.electioncontituencyinformationAll) {
         if (
@@ -189,7 +190,7 @@ export class ElectioncontituencypollingstationinformationComponent
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.pollingstation_ID) {
               this.toastrservice.success("Success");
-              this.toastrservice.info("New Polling Station Information Added");
+              this.toastrservice.info("New Polling Station Added");
               this.electioncontituencypollingstationinformation = response;
               this.getAll();
 
@@ -207,7 +208,8 @@ export class ElectioncontituencypollingstationinformationComponent
 
   update(electioncontituencypollingstationinformation) {
     if (electioncontituencypollingstationinformation.Contituency == "") {
-      electioncontituencypollingstationinformation.Contituency = this.electioncontituencyinformationAll[0].contituency_ID;
+      electioncontituencypollingstationinformation.Contituency =
+        this.electioncontituencyinformationAll[0].contituency_ID;
     } else {
       for (let contituency in this.electioncontituencyinformationAll) {
         if (
@@ -255,22 +257,5 @@ export class ElectioncontituencypollingstationinformationComponent
           this.onfailservice.onFail(error);
         }
       );
-  }
-
-  getElectionType() {
-    this.lookupservice.lookup("DRIVERTYPE").subscribe(
-      (response) => {
-        if (response) {
-          if (response.error && response.status) {
-            this.toastrservice.warning("Message", " " + response.message);
-          } else {
-            this.electiontypeActive = response;
-          }
-        }
-      },
-      (error) => {
-        this.onfailservice.onFail(error);
-      }
-    );
   }
 }

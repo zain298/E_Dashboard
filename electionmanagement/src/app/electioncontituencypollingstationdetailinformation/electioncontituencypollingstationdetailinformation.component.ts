@@ -28,7 +28,7 @@ export class ElectioncontituencypollingstationdetailinformationComponent
     stationName: "",
     areatype: "",
     pollingstation_ID: 0,
-    person_ID:0,
+    person_ID: 0,
     areatype_ID: 0,
     assignedvoters: "",
     voters: 0,
@@ -90,7 +90,7 @@ export class ElectioncontituencypollingstationdetailinformationComponent
       stationName: "",
       voters: 0,
       pollingstation_ID: 0,
-      person_ID:0,
+      person_ID: 0,
       areatype: "",
       areatype_ID: 0,
       assignedvoters: "",
@@ -188,24 +188,18 @@ export class ElectioncontituencypollingstationdetailinformationComponent
     if (electioncontituencypollingstationdetailinformation.areatype == "") {
       electioncontituencypollingstationdetailinformation.areatype_ID =
         this.areatypeAll[0].id;
-        electioncontituencypollingstationdetailinformation.person_ID =
+      electioncontituencypollingstationdetailinformation.person_ID =
         this.areatypeAll[0].id;
     } else {
-      for (let area in this
-        .areatypeAll) {
+      for (let area in this.areatypeAll) {
         if (
           electioncontituencypollingstationdetailinformation.areatype ==
-          this.areatypeAll[area]
-            .description
+          this.areatypeAll[area].description
         ) {
           electioncontituencypollingstationdetailinformation.areatype_ID =
-            this.areatypeAll[
-              area
-            ].id;
-            electioncontituencypollingstationdetailinformation.person_ID =
-            this.areatypeAll[
-              area
-            ].id;
+            this.areatypeAll[area].id;
+          electioncontituencypollingstationdetailinformation.person_ID =
+            this.areatypeAll[area].id;
         }
       }
     }
@@ -220,7 +214,7 @@ export class ElectioncontituencypollingstationdetailinformationComponent
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.pollingsattiondetail_ID) {
               this.toastrservice.success("Success");
-              this.toastrservice.info("New Polling Station Detail Info Added");
+              this.toastrservice.info("New Polling Station Detail Added");
               this.electioncontituencypollingstationdetailinformation =
                 response;
               this.getAll();
@@ -287,24 +281,18 @@ export class ElectioncontituencypollingstationdetailinformationComponent
     if (electioncontituencypollingstationdetailinformation.areatype == "") {
       electioncontituencypollingstationdetailinformation.areatype_ID =
         this.areatypeAll[0].id;
-        electioncontituencypollingstationdetailinformation.person_ID =
+      electioncontituencypollingstationdetailinformation.person_ID =
         this.areatypeAll[0].id;
     } else {
-      for (let area in this
-        .areatypeAll) {
+      for (let area in this.areatypeAll) {
         if (
           electioncontituencypollingstationdetailinformation.areatype ==
-          this.areatypeAll[area]
-            .description
+          this.areatypeAll[area].description
         ) {
           electioncontituencypollingstationdetailinformation.areatype_ID =
-            this.areatypeAll[
-              area
-            ].id;
-            electioncontituencypollingstationdetailinformation.person_ID =
-            this.areatypeAll[
-              area
-            ].id;
+            this.areatypeAll[area].id;
+          electioncontituencypollingstationdetailinformation.person_ID =
+            this.areatypeAll[area].id;
         }
       }
     }

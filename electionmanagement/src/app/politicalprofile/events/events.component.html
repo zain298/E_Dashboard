@@ -34,7 +34,6 @@
                                 <table class="table table-padded">
                                   <thead>
                                     <tr>
-                                      <th></th>
                                       <th>Event Title</th>
                                       <th>Event Discription</th>
                                       <th class="text-center">Date</th>
@@ -47,12 +46,6 @@
                                     <tr
                                       *ngFor="let events of eventsformationAll"
                                     >
-                                      <td class="text-center">
-                                        <input
-                                          class="form-control"
-                                          type="checkbox"
-                                        />
-                                      </td>
                                       <td>
                                         <div class="user-with-avatar">
                                           <span
@@ -72,7 +65,7 @@
                                         <div class="smaller lighter">
                                           <span
                                             style="
-                                              max-width: 50ch;
+                                              max-width: 40ch;
                                               display: inline-block;
                                               white-space: nowrap;
                                               overflow: hidden;
@@ -183,19 +176,22 @@
                   class="form-control"
                   name="eventDate"
                   [(ngModel)]="eventinformation.date"
-                  maxlength="20"
+                  maxlength="40"
                 />
               </div>
             </div>
             <div class="col-md-8">
               <div class="form-group">
-                <label class="control-label"> Event Venue </label>
+                <label class="control-label">
+                  Event Venue <span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="eventVenue"
                   [(ngModel)]="eventinformation.venue"
-                  maxlength="50"
+                  maxlength="200"
+                  required
                 />
               </div>
             </div>
@@ -204,13 +200,16 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> Event Title </label>
+                <label class="control-label">
+                  Event Title <span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="eventTitle"
                   [(ngModel)]="eventinformation.title"
-                  maxlength="50"
+                  maxlength="500"
+                  required
                 />
               </div>
             </div>
@@ -218,14 +217,17 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> Event Image </label>
+                <label class="control-label">
+                  Event Image <span style="color: red">*</span></label
+                >
                 <input
                   type="file"
                   class="form-control"
                   name="image"
                   accept="image/*"
                   (change)="onFileChanged($event)"
-                  maxlength="200"
+                  maxlength="2000"
+                  required
                 />
               </div>
             </div>
@@ -234,13 +236,15 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label"> Event Description </label>
-                <input
-                  type="text"
+
+                <textarea
                   class="form-control"
-                  name="eventDesc"
                   [(ngModel)]="eventinformation.description"
-                  maxlength="50"
-                />
+                  name="eventDesc"
+                  cols="30"
+                  rows="10"
+                >
+                </textarea>
               </div>
             </div>
           </div>
@@ -298,19 +302,22 @@
                   class="form-control"
                   name="eventDate"
                   [(ngModel)]="eventinformation.date"
-                  maxlength="20"
+                  maxlength="40"
                 />
               </div>
             </div>
             <div class="col-md-8">
               <div class="form-group">
-                <label class="control-label"> Event Venue </label>
+                <label class="control-label">
+                  Event Venue<span style="color: red">*</span>
+                </label>
                 <input
                   type="text"
                   class="form-control"
                   name="eventVenue"
                   [(ngModel)]="eventinformation.venue"
-                  maxlength="50"
+                  maxlength="200"
+                  required
                 />
               </div>
             </div>
@@ -318,13 +325,16 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> Event Title </label>
+                <label class="control-label">
+                  Event Title <span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="eventTitle"
                   [(ngModel)]="eventinformation.title"
-                  maxlength="50"
+                  maxlength="500"
+                  required
                 />
               </div>
             </div>
@@ -332,14 +342,17 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> Event Image </label>
+                <label class="control-label">
+                  Event Image <span style="color: red">*</span></label
+                >
                 <input
                   type="file"
                   class="form-control"
                   name="image"
                   accept="image/*"
                   (change)="onFileChanged($event)"
-                  maxlength="200"
+                  maxlength="2000"
+                  required
                 />
               </div>
             </div>
@@ -348,13 +361,14 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="control-label"> Event Description </label>
-                <input
-                  type="text"
+
+                <textarea
                   class="form-control"
-                  name="eventDesc"
                   [(ngModel)]="eventinformation.description"
-                  maxlength="50"
-                />
+                  name="eventDesc"
+                  cols="30"
+                  rows="10"
+                ></textarea>
               </div>
             </div>
           </div>

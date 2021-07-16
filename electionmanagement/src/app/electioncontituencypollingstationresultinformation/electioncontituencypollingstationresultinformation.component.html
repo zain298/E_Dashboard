@@ -163,7 +163,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          <i class="fa fa-plus" aria-hidden="true"></i> Add New Polling Station Result Information
+          <i class="fa fa-plus" aria-hidden="true"></i> Add New Polling Station
+          Result Information
         </h5>
         <button
           aria-label="Close"
@@ -192,6 +193,7 @@
                   >Polling Station Name<span style="color: red">*</span></label
                 >
                 <ng-select
+                  required
                   [(ngModel)]="
                     electioncontituencypollingstationresultinformation.stationName
                   "
@@ -218,17 +220,16 @@
                   >Obtained Votes<span style="color: red">*</span></label
                 >
                 <input
+                  required
                   type="text"
                   class="form-control"
-                  name="surname"
+                  name="ov"
                   [(ngModel)]="
                     electioncontituencypollingstationresultinformation.obtained_VOTES
                   "
                   maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
+                  pattern="[0-9\s]+"
                 />
               </div>
             </div>
@@ -238,6 +239,7 @@
                   >Candidate Name<span style="color: red">*</span></label
                 >
                 <ng-select
+                  required
                   [(ngModel)]="
                     electioncontituencypollingstationresultinformation.candidate_name
                   "
@@ -284,7 +286,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Polling Station Result Information
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Polling
+          Station Result Information
         </h5>
         <button
           aria-label="Close"
@@ -313,6 +316,7 @@
                   >Polling Station Name<span style="color: red">*</span></label
                 >
                 <ng-select
+                  requird
                   [(ngModel)]="
                     electioncontituencypollingstationresultinformation.stationName
                   "
@@ -339,17 +343,17 @@
                   >Obtained Votes<span style="color: red">*</span></label
                 >
                 <input
+                  required
                   type="text"
                   class="form-control"
-                  name="surname"
+                  name="ov"
                   [(ngModel)]="
                     electioncontituencypollingstationresultinformation.obtained_VOTES
                   "
                   maxlength="50"
                   [ngClass]="{ 'is-invalid': code.invalid }"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
+                  pattern="[0-9\s]+"
                 />
               </div>
             </div>
@@ -359,6 +363,7 @@
                   >Candidate Name<span style="color: red">*</span></label
                 >
                 <ng-select
+                  required
                   [(ngModel)]="
                     electioncontituencypollingstationresultinformation.candidate_name
                   "

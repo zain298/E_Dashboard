@@ -88,7 +88,7 @@ export class EventsComponent implements OnInit {
 
     this.httpClient
       .post(
-        "https://testing-spring-app.herokuapp.com/event/upload",
+        "https://testing-spring-app.herokuapp.com/image/upload",
         uploadImageData,
         { observe: "response" }
       )
@@ -125,7 +125,7 @@ export class EventsComponent implements OnInit {
 
     this.httpClient
       .post(
-        "https://testing-spring-app.herokuapp.com/event/upload",
+        "https://testing-spring-app.herokuapp.com/image/upload",
         uploadImageData,
         { observe: "response" }
       )

@@ -74,7 +74,7 @@ import { ViewRendererComponent } from "./renderer/View-renderer.component";
 import { RequestOptionsService } from "./services/setting.headers";
 
 import { LookupComponent } from "./lookup/lookup.component";
-import { DriverinformationComponent } from "./driverinformation/driverinformation.component";
+// import { DriverinformationComponent } from "./driverinformation/driverinformation.component";
 import { ElectioninformationComponent } from "./electioninformation/electioninformation.component";
 import { ElectionblockcodeinformationComponent } from "./electionblockcodeinformation/electionblockcodeinformation.component";
 import { ElectioncontituencyinformationComponent } from "./electioncontituencyinformation/electioncontituencyinformation.component";
@@ -108,7 +108,7 @@ import { SocialaccountsComponent } from "./socialaccounts/socialaccounts.compone
     LookupComponent,
     ButtonRendererComponent,
     ViewRendererComponent,
-    DriverinformationComponent,
+    // DriverinformationComponent,
     ElectioninformationComponent,
     ElectionblockcodeinformationComponent,
     ElectioncontituencyinformationComponent,

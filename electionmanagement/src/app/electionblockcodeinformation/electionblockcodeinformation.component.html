@@ -9,8 +9,7 @@
                 <div class="pipeline-header">
                   <span class="pipeline-name"
                     ><b
-                      ><i class="fa fa-columns faw"></i> Block Code
-                      Information
+                      ><i class="fa fa-columns faw"></i> Block Code Information
                     </b></span
                   >
                   <button
@@ -65,21 +64,22 @@
                             cssClass="myClass"
                             sortOrder="asc">
                           </dxi-column> -->
-                          <dxi-column
-                          [width]="75"
-                          [allowFiltering]="false"
-                          [allowSorting]="false"
-                          alignment="center"
-                          cellTemplate="cellTemplate"
-                        >
-                        </dxi-column>
-                        <dxi-column
-                          [width]="75"
-                          [allowFiltering]="false"
-                          [allowSorting]="false"
-                          alignment="center"
-                          cellTemplate="delTemplate"
-                        > </dxi-column>
+                            <dxi-column
+                              [width]="75"
+                              [allowFiltering]="false"
+                              [allowSorting]="false"
+                              alignment="center"
+                              cellTemplate="cellTemplate"
+                            >
+                            </dxi-column>
+                            <dxi-column
+                              [width]="75"
+                              [allowFiltering]="false"
+                              [allowSorting]="false"
+                              alignment="center"
+                              cellTemplate="delTemplate"
+                            >
+                            </dxi-column>
                             <dxi-column
                               [width]=""
                               dataField="electoralarea"
@@ -111,8 +111,7 @@
                             cssClass="myClass"
                             alignment="center"
                           ></dxi-column> -->
-                           
-                           
+
                             <div *dxTemplate="let data of 'cellTemplate'">
                               <button
                                 class="
@@ -133,7 +132,11 @@
                                 "
                                 (click)="Delete(data)"
                               >
-                                <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
+                                <i
+                                  class="fa fa-trash"
+                                  aria-hidden="true"
+                                  style="color: red"
+                                ></i>
                               </button>
                             </div>
                             <dxo-scrolling
@@ -200,7 +203,7 @@
                   [(ngModel)]="electionblockcodeinformation.areaType"
                   name="area_type"
                   ng-init="electionblockcodeinformation.area_type"
-                  style=" caret-color: transparent;"
+                  style="caret-color: transparent"
                 >
                   <ng-option
                     *ngFor="let areaType of areatypeActive"
@@ -243,7 +246,7 @@
                   maxlength="50"
                   [ngClass]="{ 'is-invalid': code.invalid }"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
+                  pattern="[a-zA-Z\s]+"
                   required
                 />
               </div>
@@ -297,13 +300,19 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> Electoral Area</label>
+                <label class="control-label">
+                  Electoral Area<span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="title"
                   [(ngModel)]="electionblockcodeinformation.electoralarea"
                   maxlength="50"
+                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  #code="ngModel"
+                  pattern="[a-zA-Z\s]+"
+                  required
                 />
               </div>
             </div>
@@ -332,12 +341,12 @@
                 <label class="control-label"
                   >Area Type<span style="color: red">*</span></label
                 >
-                
+
                 <ng-select
                   [(ngModel)]="electionblockcodeinformation.areaType"
                   name="area_type"
                   ng-init="electionblockcodeinformation.area_type"
-                  style=" caret-color: transparent;"
+                  style="caret-color: transparent"
                 >
                   <ng-option
                     *ngFor="let areaType of areatypeActive"

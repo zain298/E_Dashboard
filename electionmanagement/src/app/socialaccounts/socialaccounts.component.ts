@@ -41,14 +41,19 @@ export class SocialaccountsComponent implements OnInit {
       .post(url, {
         message: text,
         access_token:
-          "EAAMoAIIgkYUBADmC2v6OPPCMYc98r6FgSoRcqomZCyZBqfSUthyonBwntYVMkLZCUFJVTcP2hyZC6zZCbgQZBWy2gNNol2CzF6QZAtmwscP1hagPfcuuN3vdeSsmH6MOFWtU7Pltq9pp2ZAwCRuQxSCMdRQlUNPr3Em00NEZConW1JGPDvfqMq9gT",
+          "EAAMoAIIgkYUBAClZA5xk3p3WkFTPWZBmboWlCJQZBgZBM6MzrRWaNbYV3DZCqzQSQ1DBs7TBC7BdNiWuBP4vbX6bPq9JocSf7MGROCrGepmZCc6rjxcKaZAgaJBZCNOxILCWzgdILRG0BPW3eOo7JXyVo0X2hqcxNS28QwZCyopBaJza92ITmdBHT",
       })
       .toPromise()
-      .then((data: any) => {
-        console.log(data);
-      });
-    this.toastrservice.success("Success");
-    this.toastrservice.info("Text Message Posted");
+      .then(
+        (data: any) => {
+          console.log(data);
+          this.toastrservice.success("Success");
+          this.toastrservice.info("Text Message Posted");
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
   PostLink(text: any, linkk: any) {
     let url = "https://graph.facebook.com/v11.0/104120661940124/feed?";
@@ -57,11 +62,13 @@ export class SocialaccountsComponent implements OnInit {
         message: text,
         link: linkk,
         access_token:
-          "EAAMoAIIgkYUBADmC2v6OPPCMYc98r6FgSoRcqomZCyZBqfSUthyonBwntYVMkLZCUFJVTcP2hyZC6zZCbgQZBWy2gNNol2CzF6QZAtmwscP1hagPfcuuN3vdeSsmH6MOFWtU7Pltq9pp2ZAwCRuQxSCMdRQlUNPr3Em00NEZConW1JGPDvfqMq9gT",
+          "EAAMoAIIgkYUBAClZA5xk3p3WkFTPWZBmboWlCJQZBgZBM6MzrRWaNbYV3DZCqzQSQ1DBs7TBC7BdNiWuBP4vbX6bPq9JocSf7MGROCrGepmZCc6rjxcKaZAgaJBZCNOxILCWzgdILRG0BPW3eOo7JXyVo0X2hqcxNS28QwZCyopBaJza92ITmdBHT",
       })
       .toPromise()
       .then((data: any) => {
         console.log(data);
+        this.toastrservice.success("Success");
+        this.toastrservice.info("Link Posted");
       });
   }
   PostImage(imgurl) {
@@ -70,10 +77,12 @@ export class SocialaccountsComponent implements OnInit {
       .post(url, {
         url: imgurl,
         access_token:
-          "EAAMoAIIgkYUBADmC2v6OPPCMYc98r6FgSoRcqomZCyZBqfSUthyonBwntYVMkLZCUFJVTcP2hyZC6zZCbgQZBWy2gNNol2CzF6QZAtmwscP1hagPfcuuN3vdeSsmH6MOFWtU7Pltq9pp2ZAwCRuQxSCMdRQlUNPr3Em00NEZConW1JGPDvfqMq9gT",
+          "EAAMoAIIgkYUBAClZA5xk3p3WkFTPWZBmboWlCJQZBgZBM6MzrRWaNbYV3DZCqzQSQ1DBs7TBC7BdNiWuBP4vbX6bPq9JocSf7MGROCrGepmZCc6rjxcKaZAgaJBZCNOxILCWzgdILRG0BPW3eOo7JXyVo0X2hqcxNS28QwZCyopBaJza92ITmdBHT",
       })
       .toPromise()
       .then((data: any) => {
+        this.toastrservice.success("Success");
+        this.toastrservice.info("Image Posted");
         console.log(data);
       });
   }

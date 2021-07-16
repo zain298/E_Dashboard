@@ -15,7 +15,7 @@ import { DemoViewOneComponent } from "./dashboard2/demo-view/demo-view-one/demo-
 import { DemoViewTwoComponent } from "./dashboard2/demo-view/demo-view-two/demo-view-two.component";
 
 import { LookupComponent } from "./lookup/lookup.component";
-import { DriverinformationComponent } from "./driverinformation/driverinformation.component";
+// import { DriverinformationComponent } from "./driverinformation/driverinformation.component";
 import { ElectioninformationComponent } from "./electioninformation/electioninformation.component";
 import { ElectionblockcodeinformationComponent } from "./electionblockcodeinformation/electionblockcodeinformation.component";
 import { ElectioncontituencyinformationComponent } from "./electioncontituencyinformation/electioncontituencyinformation.component";
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
       { path: "", component: HomeComponent },
       { path: "home", component: HomeComponent },
       { path: "lookup", component: LookupComponent },
-      { path: "driverinformation", component: DriverinformationComponent },
+      // { path: "driverinformation", component: DriverinformationComponent },
       { path: "electioninformation", component: ElectioninformationComponent },
       {
         path: "electionblockcodeinformation",

@@ -33,10 +33,6 @@ export class ElectionblockcodeinformationComponent implements OnInit {
 
   ngOnInit() {
     this.getAll();
-
-    for (var i = 0; i <= 50; i++) {
-      this.orderno.push({ value: i });
-    }
   }
 
   // Frontend Actions
@@ -128,12 +124,8 @@ export class ElectionblockcodeinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.blockcode_ID) {
-              this.toastrservice.success(
-                "Success"
-              );
-              this.toastrservice.info(
-                "New Record Added"
-              );
+              this.toastrservice.success("Success");
+              this.toastrservice.info("New Record Added");
               this.electionblockcodeinformation = response;
               this.getAll();
 
@@ -182,12 +174,8 @@ export class ElectionblockcodeinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.blockcode_ID) {
-              this.toastrservice.success(
-                "Success"
-              );
-              this.toastrservice.info(
-                "Block Information Updated"
-              );
+              this.toastrservice.success("Success");
+              this.toastrservice.info("Block Information Updated");
               this.electionblockcodeinformation = response;
               this.getAll();
               $("#editModal").modal("hide");
@@ -210,9 +198,7 @@ export class ElectionblockcodeinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.blockcode_ID) {
-              this.toastrservice.success(
-                "Success"
-              );
+              this.toastrservice.success("Success");
               this.toastrservice.info("Block Record Deleted");
               this.electionblockcodeinformation = response;
               this.getAll();
@@ -228,17 +214,6 @@ export class ElectionblockcodeinformationComponent implements OnInit {
       );
   }
   getAreaType() {
-    // this.lookupservice.lookup("ELECTORALAREATYPE").subscribe(response => {
-    //   if(response) {
-    //     if (response.error && response.status) {
-    //       this.toastrservice.warning("Message", " " + response.message);
-    //     } else {
-    //       this.electiontypeActive = response;
-    //     }
-    //   }
-    // }, error => {
-    //   this.onfailservice.onFail(error);
-    // })
     this.areatypeActive = [
       {
         id: 1012,

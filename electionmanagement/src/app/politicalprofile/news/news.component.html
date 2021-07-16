@@ -350,7 +350,8 @@
                   class="form-control"
                   name="newsdate"
                   [(ngModel)]="newsinformation.date"
-                  maxlength="20"
+                  maxlength="40"
+                  required
                 />
               </div>
             </div>
@@ -362,7 +363,8 @@
                   class="form-control"
                   name="autherName"
                   [(ngModel)]="newsinformation.author"
-                  maxlength="20"
+                  maxlength="200"
+                  required
                 />
               </div>
             </div>
@@ -371,13 +373,16 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> News Title </label>
+                <label class="control-label">
+                  News Title<span style="color: red">*</span>
+                </label>
                 <input
                   type="text"
                   class="form-control"
                   name="NewsTitle"
                   [(ngModel)]="newsinformation.title"
-                  maxlength="50"
+                  maxlength="500"
+                  required
                 />
               </div>
             </div>
@@ -385,7 +390,9 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> News Image </label>
+                <label class="control-label">
+                  News Image <span style="color: red">*</span></label
+                >
                 <input
                   id="eventimage"
                   type="file"
@@ -393,7 +400,8 @@
                   class="form-control"
                   name="newsimage"
                   (change)="onFileChanged($event)"
-                  maxlength="200"
+                  maxlength="2000"
+                  required
                 />
               </div>
             </div>
@@ -403,7 +411,9 @@
             <div class="col-md-12">
               <form [formGroup]="editorForm" (ngSubmit)="OnSave()">
                 <div class="form-group">
-                  <label class="control-label"> News Description </label>
+                  <label class="control-label">
+                    News Description<span style="color: red">*</span>
+                  </label>
 
                   <textarea
                     formControlName="editor"
@@ -412,6 +422,7 @@
                     name="mytextarea"
                     cols="30"
                     rows="10"
+                    required
                   >
                   </textarea>
                 </div>
@@ -486,19 +497,22 @@
                   class="form-control"
                   name="newsDate"
                   [(ngModel)]="newsinformation.date"
-                  maxlength="20"
+                  maxlength="40"
                 />
               </div>
             </div>
             <div class="col-md-8">
               <div class="form-group">
-                <label class="control-label"> Auther Name </label>
+                <label class="control-label">
+                  Auther Name <span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="autherName"
                   [(ngModel)]="newsinformation.author"
-                  maxlength="20"
+                  maxlength="200"
+                  required
                 />
               </div>
             </div>
@@ -507,13 +521,16 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> News Title </label>
+                <label class="control-label">
+                  News Title <span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="newsTitle"
                   [(ngModel)]="newsinformation.title"
-                  maxlength="50"
+                  maxlength="500"
+                  required
                 />
               </div>
             </div>
@@ -521,14 +538,17 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label"> News image </label>
+                <label class="control-label">
+                  News image <span style="color: red">*</span></label
+                >
                 <input
                   type="file"
                   class="form-control"
                   name="image"
                   accept="image/*"
                   (change)="onFileChanged($event)"
-                  maxlength="200"
+                  maxlength="2000"
+                  required
                 />
               </div>
             </div>
@@ -537,7 +557,9 @@
             <div class="col-md-12">
               <form [formGroup]="editorE" (ngSubmit)="OnSave()">
                 <div class="form-group">
-                  <label class="control-label"> News Description </label>
+                  <label class="control-label">
+                    News Description<span style="color: red">*</span>
+                  </label>
 
                   <textarea
                     formControlName="editeditor"
@@ -546,6 +568,7 @@
                     name="myedittextarea"
                     cols="30"
                     rows="10"
+                    required
                   >
                   </textarea>
                 </div>

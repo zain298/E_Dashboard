@@ -100,7 +100,7 @@
                               alignment="center"
                               cssClass="myClass"
                             ></dxi-column>
-                            
+
                             <div *dxTemplate="let data of 'cellTemplate'">
                               <button
                                 class="
@@ -180,13 +180,16 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Contituency Code</label>
+                <label class="control-label"
+                  >Contituency Code<span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="title"
                   [(ngModel)]="electioncontituencyinformation.contituency_CODE"
                   maxlength="50"
+                  required
                 />
               </div>
             </div>
@@ -200,9 +203,9 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="surname"
+                  name="contituencyarea"
                   [(ngModel)]="electioncontituencyinformation.contituency_DESC"
-                  maxlength="50"
+                  maxlength="200"
                   [ngClass]="{ 'is-invalid': code.invalid }"
                   #code="ngModel"
                   required
@@ -215,14 +218,23 @@
                   >Election<span style="color: red">*</span></label
                 >
                 <ng-select
-                  [(ngModel)]="electioncontituencyinformation.election_description"
+                  required
+                  [(ngModel)]="
+                    electioncontituencyinformation.election_description
+                  "
                   name="Election"
                   ng-init="electionblockcodeinformation.election_description"
                 >
                   <ng-option
                     *ngFor="let election of electioninformationAll"
-                    [value]="election.election_TYPE.description+election.election_DATE"
-                    >{{ election.election_TYPE.description+election.election_DATE }}</ng-option
+                    [value]="
+                      election.election_TYPE.description +
+                      election.election_DATE
+                    "
+                    >{{
+                      election.election_TYPE.description +
+                        election.election_DATE
+                    }}</ng-option
                   >
                 </ng-select>
               </div>
@@ -233,8 +245,9 @@
                   >Assembly<span style="color: red">*</span></label
                 >
                 <ng-select
+                  required
                   [(ngModel)]="electioncontituencyinformation.description"
-                  name="description"
+                  name="assembly"
                   ng-init="electioncontituencyinformation.description"
                 >
                   <ng-option
@@ -251,6 +264,7 @@
                   >District<span style="color: red">*</span></label
                 >
                 <ng-select
+                  required
                   [(ngModel)]="electioncontituencyinformation.district_NAME"
                   name="District Name"
                   ng-init="electionblockcodeinformation.description"
@@ -264,25 +278,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <div class="row">
-          <div class="col-md-12">
-            <div class="form-group ">
-              <label class="control-label"> Election Type </label>
-              <ng-select [(ngModel)]="electioncontituencyinformation.electiontype_ID" name="electiontype_ID">
-                <ng-option *ngFor="let electiontype of electiontypeActive" [value]="electiontype.id">{{electiontype.description}}</ng-option>
-            </ng-select>
-            </div>
-          </div>
-        </div> -->
-          <!-- <div class="row">
-            <div class="col-md-12">
-              <div class="form-group ">
-                <label class="control-label">Electioning Path</label>
-                <input type="text" class="form-control" name="electioning_PATH" [(ngModel)]="electioncontituencyinformation.electioning_PATH" maxlength="50"  >
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
@@ -331,13 +326,16 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Contituency Code</label>
+                <label class="control-label"
+                  >Contituency Code<span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="title"
                   [(ngModel)]="electioncontituencyinformation.contituency_CODE"
                   maxlength="50"
+                  required
                 />
               </div>
             </div>
@@ -351,9 +349,9 @@
                 <input
                   type="text"
                   class="form-control"
-                  name="surname"
+                  name="contituencyarea"
                   [(ngModel)]="electioncontituencyinformation.contituency_DESC"
-                  maxlength="50"
+                  maxlength="200"
                   [ngClass]="{ 'is-invalid': code.invalid }"
                   #code="ngModel"
                   required
@@ -366,6 +364,7 @@
                   >Assembly<span style="color: red">*</span></label
                 >
                 <ng-select
+                  required
                   [(ngModel)]="electioncontituencyinformation.description"
                   name="area_type"
                   ng-init="electionblockcodeinformation.description"
@@ -381,9 +380,37 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label class="control-label"
+                  >Election<span style="color: red">*</span></label
+                >
+                <ng-select
+                  required
+                  [(ngModel)]="
+                    electioncontituencyinformation.election_description
+                  "
+                  name="Election"
+                  ng-init="electionblockcodeinformation.election_description"
+                >
+                  <ng-option
+                    *ngFor="let election of electioninformationAll"
+                    [value]="
+                      election.election_TYPE.description +
+                      election.election_DATE
+                    "
+                    >{{
+                      election.election_TYPE.description +
+                        election.election_DATE
+                    }}</ng-option
+                  >
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label"
                   >District<span style="color: red">*</span></label
                 >
                 <ng-select
+                  required
                   [(ngModel)]="electioncontituencyinformation.district_NAME"
                   name="District Name"
                   ng-init="electionblockcodeinformation.description"
@@ -397,25 +424,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <div class="row">
-          <div class="col-md-12">
-            <div class="form-group ">
-              <label class="control-label"> Election Type </label>
-              <ng-select [(ngModel)]="electioncontituencyinformation.electiontype_ID" name="electiontype_ID">
-                <ng-option *ngFor="let electiontype of electiontypeActive" [value]="electiontype.id">{{electiontype.description}}</ng-option>
-            </ng-select>
-            </div>
-          </div>
-        </div> -->
-          <!-- <div class="row">
-            <div class="col-md-12">
-              <div class="form-group ">
-                <label class="control-label">Electioning Path</label>
-                <input type="text" class="form-control" name="electioning_PATH" [(ngModel)]="electioncontituencyinformation.electioning_PATH" maxlength="50"  >
-              </div>
-            </div>
-          </div> -->
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" [disabled]="f.invalid">

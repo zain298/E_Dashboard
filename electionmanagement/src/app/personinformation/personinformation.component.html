@@ -198,11 +198,13 @@
               <div class="form-group">
                 <label class="control-label">Title </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   name="title"
+                  pattern="[a-zA-Z\s]+"
                   [(ngModel)]="personinformation.title"
-                  maxlength="50"
+                  maxlength="20"
                 />
               </div>
             </div>
@@ -214,15 +216,14 @@
                   >Forename <span style="color: red">*</span></label
                 >
                 <input
+                  required
                   type="text"
                   class="form-control"
                   name="surname"
                   [(ngModel)]="personinformation.forenames"
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="100"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
+                  pattern="[a-zA-Z\s]+"
                 />
               </div>
             </div>
@@ -232,15 +233,14 @@
                   >Surname<span style="color: red">*</span></label
                 >
                 <input
+                  required
                   type="text"
                   class="form-control"
                   name="forenames"
                   [(ngModel)]="personinformation.surname"
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="100"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
+                  pattern="[a-zA-Z\s]+"
                 />
               </div>
             </div>
@@ -295,11 +295,13 @@
               <div class="form-group">
                 <label class="control-label">Title </label>
                 <input
+                  required
                   type="text"
                   class="form-control"
                   name="title"
                   [(ngModel)]="personinformation.title"
-                  maxlength="50"
+                  maxlength="20"
+                  pattern="[a-zA-Z\s]+"
                 />
               </div>
             </div>
@@ -311,15 +313,14 @@
                   >Forename <span style="color: red">*</span></label
                 >
                 <input
+                  required
                   type="text"
                   class="form-control"
                   name="surname"
                   [(ngModel)]="personinformation.forenames"
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="100"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
+                  pattern="[a-zA-Z\s]+"
                 />
               </div>
             </div>
@@ -329,15 +330,15 @@
                   >Surname<span style="color: red">*</span></label
                 >
                 <input
+                  required
                   type="text"
                   class="form-control"
                   name="forenames"
                   [(ngModel)]="personinformation.surname"
-                  maxlength="50"
+                  maxlength="100"
                   [ngClass]="{ 'is-invalid': code.invalid }"
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
+                  pattern="[a-zA-Z\s]+"
                 />
               </div>
             </div>

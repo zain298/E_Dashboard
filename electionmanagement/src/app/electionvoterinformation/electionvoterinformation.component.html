@@ -133,7 +133,7 @@
                                 class="
                                   btn btn-default btn-white btn-rounded btn-sm
                                 "
-                                (click)="Edit(data)"
+                                (click)="Delete(data)"
                               >
                                 <i
                                   class="fa fa-trash"
@@ -190,125 +190,147 @@
         #f="ngForm"
         novalidate
       >
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label class="control-label">Voter Name</label>
-              <input
-                type="text"
-                class="form-control"
-                name="name"
-                [(ngModel)]="Electionvoterinformation.name"
-                maxlength="50"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label"
-                >Father Name<span style="color: red">*</span></label
-              >
-              <input
-                type="text"
-                class="form-control"
-                name="father name"
-                [(ngModel)]="Electionvoterinformation.father_NAME"
-                maxlength="50"
-                [ngClass]="{ 'is-invalid': code.invalid }"
-                #code="ngModel"
-                pattern="[a-zA-Z0-9\s]+"
-                required
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label"
-                >CNIC<span style="color: red">*</span></label
-              >
-              <input
-                type="text"
-                class="form-control"
-                name="cnic"
-                [(ngModel)]="Electionvoterinformation.cnic"
-                maxlength="50"
-                [ngClass]="{ 'is-invalid': code.invalid }"
-                #code="ngModel"
-                pattern="[a-zA-Z0-9\s]+"
-                required
-              />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label">Vote Casted?</label>
-              <ng-select
-                [(ngModel)]="Electionvoterinformation.iscasted"
-                name="iscasted"
-              >
-                <ng-option
-                  *ngFor="let option of castedOptionAll"
-                  [value]="option"
-                  >{{ option }}</ng-option
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label"
+                  >Voter Name<span style="color: red">*</span></label
                 >
-              </ng-select>
+                <input
+                required
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  [(ngModel)]="Electionvoterinformation.name"
+                  maxlength="500"
+                  
+                />
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label"
-                >Address<span style="color: red">*</span></label
-              >
-              <input
-                type="text"
-                class="form-control"
-                name="address"
-                [(ngModel)]="Electionvoterinformation.address"
-                maxlength="500"
-                [ngClass]="{ 'is-invalid': code.invalid }"
-                #code="ngModel"
-                pattern="[a-zA-Z0-9\s]+"
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label"
+                  >Father Name<span style="color: red">*</span></label
+                >
+                <input
                 required
-              />
+                  type="text"
+                  class="form-control"
+                  name="father name"
+                  [(ngModel)]="Electionvoterinformation.father_NAME"
+                  maxlength="500"
+                
+                  #code="ngModel"
+                  pattern="[a-zA-Z\s]+"
+                  
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label"
+                  >CNIC<span style="color: red">*</span></label
+                >
+                <input
+                required
+                  type="text"
+                  class="form-control"
+                  name="cnic"
+                  [(ngModel)]="Electionvoterinformation.cnic"
+                  maxlength="13"
+                 
+                  #code="ngModel"
+                  pattern="[0-9\s]+"
+                  
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label"
+                  >Vote Casted?<span style="color: red">*</span></label
+                >
+                <ng-select
+                required
+                  [(ngModel)]="Electionvoterinformation.iscasted"
+                  name="iscasted"
+                >
+                  <ng-option
+                    *ngFor="let option of castedOptionAll"
+                    [value]="option"
+                    >{{ option }}</ng-option
+                  >
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label"
+                  >Address<span style="color: red">*</span></label
+                >
+                <input
+                required
+                  type="text"
+                  class="form-control"
+                  name="address"
+                  [(ngModel)]="Electionvoterinformation.address"
+                  maxlength="500"
+                
+                  #code="ngModel"
+                  pattern="[a-zA-Z0-9\s]+"
+                  
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label"
+                  >Family Number<span style="color: red">*</span></label
+                >
+
+                <input
+                required
+                  type="text"
+                  class="form-control"
+                  name="familynumber"
+                  [(ngModel)]="Electionvoterinformation.family_NO"
+                  maxlength="50"
+                  pattern="[a-zA-Z0-9\s]+"
+                  #familynumber="ngModel"
+                 
+                />
+                <!-- <div
+                  *ngIf="f.submitted && familynumber.invalid"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="familynumber.errors.required">Family Number</div>
+                </div> -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Block Code</label>
+                <input
+                required
+                  type="text"
+                  class="form-control"
+                  name="blockcode"
+                  [(ngModel)]="Electionvoterinformation.blockcode"
+                  maxlength="50"
+                  pattern="[0-9\s]+"
+                 
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label">Family Number</label>
-              <input
-                type="text"
-                class="form-control"
-                name="family number"
-                [(ngModel)]="Electionvoterinformation.family_NO"
-                maxlength="50"
-                pattern="[a-zA-Z0-9\s]+"
-                required
-              />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="control-label">Block Code</label>
-              <input
-                type="text"
-                class="form-control"
-                name="blockcode"
-                [(ngModel)]="Electionvoterinformation.blockcode"
-                maxlength="50"
-                pattern="[a-zA-Z0-9\s]+"
-                required
-              />
-            </div>
-          </div>
-        </div>
-      </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
             <i class="fa fa-plus" aria-hidden="true"></i> Add
@@ -356,13 +378,17 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group">
-                <label class="control-label">Voter Name</label>
+                <label class="control-label"
+                  >Voter Name<span style="color: red">*</span></label
+                >
                 <input
+                required
                   type="text"
                   class="form-control"
                   name="name"
                   [(ngModel)]="Electionvoterinformation.name"
-                  maxlength="50"
+                  maxlength="500"
+                  
                 />
               </div>
             </div>
@@ -374,15 +400,16 @@
                   >Father Name<span style="color: red">*</span></label
                 >
                 <input
+                required
                   type="text"
                   class="form-control"
                   name="father name"
                   [(ngModel)]="Electionvoterinformation.father_NAME"
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="500"
+              
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
+                  pattern="[a-zA-Z\s]+"
+                  
                 />
               </div>
             </div>
@@ -392,15 +419,16 @@
                   >CNIC<span style="color: red">*</span></label
                 >
                 <input
+                required
                   type="text"
                   class="form-control"
                   name="cnic"
                   [(ngModel)]="Electionvoterinformation.cnic"
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="13"
+                  
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
-                  required
+                  pattern="[0-9\s]+"
+                 
                 />
               </div>
             </div>
@@ -408,8 +436,11 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Vote Casted?</label>
+                <label class="control-label"
+                  >Vote Casted?<span style="color: red">*</span></label
+                >
                 <ng-select
+                required
                   [(ngModel)]="Electionvoterinformation.iscasted"
                   name="iscasted"
                 >
@@ -427,15 +458,16 @@
                   >Address<span style="color: red">*</span></label
                 >
                 <input
+                required
                   type="text"
                   class="form-control"
                   name="address"
                   [(ngModel)]="Electionvoterinformation.address"
                   maxlength="500"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                 
                   #code="ngModel"
                   pattern="[a-zA-Z0-9\s]+"
-                  required
+                 
                 />
               </div>
             </div>
@@ -443,28 +475,33 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Family Number</label>
+                <label class="control-label"
+                  >Family Number<span style="color: red">*</span></label
+                >
                 <input
+                required
                   type="text"
                   class="form-control"
                   name="family number"
                   [(ngModel)]="Electionvoterinformation.family_NO"
                   maxlength="50"
                   pattern="[a-zA-Z0-9\s]+"
-                  required
+                 
                 />
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Block Code</label>
+                <label class="control-label"
+                  >Block Code<span style="color: red">*</span></label
+                >
                 <input
                   type="text"
                   class="form-control"
                   name="blockcode"
                   [(ngModel)]="Electionvoterinformation.blockcode"
                   maxlength="50"
-                  pattern="[a-zA-Z0-9\s]+"
+                  pattern="[0-9\s]+"
                   required
                 />
               </div>

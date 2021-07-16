@@ -37,7 +37,9 @@ export class NewsComponent implements OnInit {
   }
   // editorE: FormGroup;
   editorE = new FormGroup({
-    editeditor: new FormControl("<b>boiii</b>"),
+    editeditor: new FormControl(
+      '<p>hi,<strong> I am Zain</strong></p>\n<p>Wellcome To My Blog!</p>\n<p style="text-align: left; padding-left: 40px;">This <span style="color: #e03e2d;">blog</span> contains the information about over <em>FYP</em>.</p>'
+    ),
   });
   // editorForm: FormGroup;
   editorForm = new FormGroup({
@@ -83,6 +85,7 @@ export class NewsComponent implements OnInit {
     let date = this.datePipe.transform(new Date(row.date), "yyyy-MM-dd");
 
     this.editorE = new FormGroup({ editeditor: new FormControl("zain") });
+    // this.editorE.controls["editeditor"].setValue("bilo");
     this.newsinformation = {
       id: row.id,
       title: row.title,
@@ -252,7 +255,7 @@ export class NewsComponent implements OnInit {
             this.toastrservice.warning("Message", " " + response.message);
           } else {
             this.newsformationAll = response;
-            console.log("newsformationAll[]= " + this.newsformationAll);
+            // console.log("newsformationAll[]= " + this.newsformationAll);
           }
         }
       },

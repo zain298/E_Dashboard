@@ -105,7 +105,7 @@ export class DistrictinformationComponent implements OnInit {
   add(districtinformation) {
     if ((districtinformation.description = "")) {
       districtinformation.provinces_ID = this.provincetypeActive[0].id;
-    } else{
+    } else {
       for (let province in this.provincetypeActive) {
         if (
           (districtinformation.description =
@@ -130,10 +130,8 @@ export class DistrictinformationComponent implements OnInit {
           if (response.error && response.status) {
             this.toastrservice.warning("Message", " " + response.message);
           } else if (response.district_ID) {
-            this.toastrservice.success(
-              "Success",
-              "District Information Added"
-            );
+            this.toastrservice.success("Success");
+            this.toastrservice.info("District Information Added");
             this.districtinformation = response;
             this.getAll();
 
@@ -155,10 +153,8 @@ export class DistrictinformationComponent implements OnInit {
           if (response.error && response.status) {
             this.toastrservice.warning("Message", " " + response.message);
           } else if (response.district_ID) {
-            this.toastrservice.success(
-              "Success",
-              "election Information Updated"
-            );
+            this.toastrservice.success("Success");
+            this.toastrservice.info("District Information Deleted");
             this.districtinformation = response;
             this.getAll();
             $("#editModal").modal("hide");
@@ -175,7 +171,7 @@ export class DistrictinformationComponent implements OnInit {
   update(districtinformation) {
     if ((districtinformation.description = "")) {
       districtinformation.provinces_ID = this.provincetypeActive[0].id;
-    } else{
+    } else {
       for (let province in this.provincetypeActive) {
         if (
           (districtinformation.description =
@@ -192,7 +188,7 @@ export class DistrictinformationComponent implements OnInit {
     } else {
       districtinformation.isactive = "N";
     }
-  
+
     this.districtinformationservice
       .update(districtinformation, districtinformation.district_ID)
       .subscribe(
@@ -201,10 +197,8 @@ export class DistrictinformationComponent implements OnInit {
             if (response.error && response.status) {
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.district_ID) {
-              this.toastrservice.success(
-                "Success",
-                "District Information Updated"
-              );
+              this.toastrservice.success("Success");
+              this.toastrservice.info("District Information updated");
               this.districtinformation = response;
               this.getAll();
               $("#editModal").modal("hide");

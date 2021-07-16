@@ -225,7 +225,7 @@ export class ElectioncontituencypollingstationresultinformationComponent
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.pollingstationresult_ID) {
               this.toastrservice.success("Success");
-              this.toastrservice.info("New Polling Station Result Info Added");
+              this.toastrservice.info("New Polling Station Result Added");
 
               this.electioncontituencypollingstationresultinformation =
                 response;
@@ -252,7 +252,7 @@ export class ElectioncontituencypollingstationresultinformationComponent
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.pollingstationresult_ID) {
               this.toastrservice.success("Success");
-              this.toastrservice.info("Polling Station Result Info Deleted");
+              this.toastrservice.info("Polling Station Result Deleted");
               this.electioncontituencypollingstationresultinformation =
                 response;
               this.getAll();
@@ -329,7 +329,7 @@ export class ElectioncontituencypollingstationresultinformationComponent
               this.toastrservice.warning("Message", " " + response.message);
             } else if (response.pollingstationresult_ID) {
               this.toastrservice.success("Success");
-              this.toastrservice.info("Polling Station Result Info Updated");
+              this.toastrservice.info("Polling Station Result Updated");
               this.electioncontituencypollingstationresultinformation =
                 response;
               this.getAll();
