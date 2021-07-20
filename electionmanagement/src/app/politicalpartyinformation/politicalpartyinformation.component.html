@@ -193,7 +193,7 @@
                   class="form-control"
                   name="title"
                   [(ngModel)]="politicalpartyinformation.politicalparty_NAME"
-                  maxlength="500"
+                  maxlength="100"
                   pattern="[a-zA-Z\s]+"
                 />
               </div>
@@ -211,7 +211,7 @@
                   class="form-control"
                   name="sym"
                   [(ngModel)]="politicalpartyinformation.politicalparty_SYMBOL"
-                  maxlength="500"
+                  maxlength="50"
            
                   #code="ngModel"
                   pattern="[a-zA-Z\s]+"
@@ -231,7 +231,7 @@
                   [(ngModel)]="
                     politicalpartyinformation.politicalpartyleader_NAME
                   "
-                  maxlength="500"
+                  maxlength="00"
               
                   #code="ngModel"
                   pattern="[a-zA-Z\s]+"
@@ -255,7 +255,7 @@
                   maxlength="500"
                  
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
+                  
                 />
               </div>
             </div>
@@ -314,6 +314,7 @@
                   type="text"
                   class="form-control"
                   name="party name"
+                  maxlength="100"
                   [(ngModel)]="politicalpartyinformation.politicalparty_NAME"
                   pattern="[a-zA-Z\s]+"
                 />
@@ -332,7 +333,7 @@
                   class="form-control"
                   name="party symbol"
                   [(ngModel)]="politicalpartyinformation.politicalparty_SYMBOL"
-                  maxlength="200"
+                  maxlength="100"
                
                   #code="ngModel"
                   pattern="[a-zA-Z\s]+"
@@ -350,6 +351,7 @@
                   type="text"
                   class="form-control"
                   name="party leader"
+                  maxlength="100"
                   [(ngModel)]="
                     politicalpartyinformation.politicalpartyleader_NAME
                   "

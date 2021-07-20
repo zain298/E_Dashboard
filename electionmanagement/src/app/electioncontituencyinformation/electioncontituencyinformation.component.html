@@ -188,7 +188,7 @@
                   class="form-control"
                   name="title"
                   [(ngModel)]="electioncontituencyinformation.contituency_CODE"
-                  maxlength="50"
+                  maxlength="10"
                   required
                 />
               </div>
@@ -205,8 +205,7 @@
                   class="form-control"
                   name="contituencyarea"
                   [(ngModel)]="electioncontituencyinformation.contituency_DESC"
-                  maxlength="200"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="50"
                   #code="ngModel"
                   required
                 />
@@ -334,7 +333,7 @@
                   class="form-control"
                   name="title"
                   [(ngModel)]="electioncontituencyinformation.contituency_CODE"
-                  maxlength="50"
+                  maxlength="10"
                   required
                 />
               </div>
@@ -351,8 +350,8 @@
                   class="form-control"
                   name="contituencyarea"
                   [(ngModel)]="electioncontituencyinformation.contituency_DESC"
-                  maxlength="200"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="50"
+                  
                   #code="ngModel"
                   required
                 />

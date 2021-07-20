@@ -242,8 +242,8 @@
                   [(ngModel)]="
                     electioncontituencypollingstationinformation.POLLINGSTATION_CODE
                   "
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="3"
+                  minlength="3"
                   #code="ngModel"
                   pattern="[0-9\s]+"
                   required
@@ -353,8 +353,8 @@
                   [(ngModel)]="
                     electioncontituencypollingstationinformation.POLLINGSTATION_CODE
                   "
-                  maxlength="50"
-                  [ngClass]="{ 'is-invalid': code.invalid }"
+                  maxlength="3"
+                  minlength="3"
                   #code="ngModel"
                   pattern="[0-9\s]+"
                   required

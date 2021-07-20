@@ -203,8 +203,8 @@
                   class="form-control"
                   name="name"
                   [(ngModel)]="Electionvoterinformation.name"
-                  maxlength="500"
-                  
+                  maxlength="100"
+                  pattern="[a-zA-Z\s]+"
                 />
               </div>
             </div>
@@ -221,7 +221,7 @@
                   class="form-control"
                   name="father name"
                   [(ngModel)]="Electionvoterinformation.father_NAME"
-                  maxlength="500"
+                  maxlength="100"
                 
                   #code="ngModel"
                   pattern="[a-zA-Z\s]+"
@@ -241,7 +241,7 @@
                   name="cnic"
                   [(ngModel)]="Electionvoterinformation.cnic"
                   maxlength="13"
-                 
+                  minlength="13"
                   #code="ngModel"
                   pattern="[0-9\s]+"
                   
@@ -282,7 +282,7 @@
                   maxlength="500"
                 
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
+                 
                   
                 />
               </div>
@@ -301,8 +301,9 @@
                   class="form-control"
                   name="familynumber"
                   [(ngModel)]="Electionvoterinformation.family_NO"
-                  maxlength="50"
-                  pattern="[a-zA-Z0-9\s]+"
+                  maxlength="7"
+                  minlength="7"
+                  pattern="[0-9\s]+"
                   #familynumber="ngModel"
                  
                 />
@@ -323,7 +324,8 @@
                   class="form-control"
                   name="blockcode"
                   [(ngModel)]="Electionvoterinformation.blockcode"
-                  maxlength="50"
+                  maxlength="9"
+                  minlength="9"
                   pattern="[0-9\s]+"
                  
                 />
@@ -387,8 +389,8 @@
                   class="form-control"
                   name="name"
                   [(ngModel)]="Electionvoterinformation.name"
-                  maxlength="500"
-                  
+                  maxlength="100"
+                  pattern="[a-zA-Z\s]+"
                 />
               </div>
             </div>
@@ -405,7 +407,7 @@
                   class="form-control"
                   name="father name"
                   [(ngModel)]="Electionvoterinformation.father_NAME"
-                  maxlength="500"
+                  maxlength="100"
               
                   #code="ngModel"
                   pattern="[a-zA-Z\s]+"
@@ -425,7 +427,7 @@
                   name="cnic"
                   [(ngModel)]="Electionvoterinformation.cnic"
                   maxlength="13"
-                  
+                  minlength="13"
                   #code="ngModel"
                   pattern="[0-9\s]+"
                  
@@ -466,7 +468,7 @@
                   maxlength="500"
                  
                   #code="ngModel"
-                  pattern="[a-zA-Z0-9\s]+"
+                  
                  
                 />
               </div>
@@ -484,8 +486,9 @@
                   class="form-control"
                   name="family number"
                   [(ngModel)]="Electionvoterinformation.family_NO"
-                  maxlength="50"
-                  pattern="[a-zA-Z0-9\s]+"
+                  maxlength="7"
+                  minlength="7"
+                  pattern="[0-9\s]+"
                  
                 />
               </div>
@@ -500,7 +503,8 @@
                   class="form-control"
                   name="blockcode"
                   [(ngModel)]="Electionvoterinformation.blockcode"
-                  maxlength="50"
+                  maxlength="9"
+                  minlength="9"
                   pattern="[0-9\s]+"
                   required
                 />
